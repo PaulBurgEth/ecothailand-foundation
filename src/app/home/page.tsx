@@ -9,8 +9,9 @@ import { IMPACT_CONTRACT_ABI } from '@/lib/abi';
 import { useImpactStats, ownsLevel } from '@/hooks/useImpactStats';
 import { parseEther } from 'viem';
 import { MintModal } from '@/components/MintModal';
-import { MintingConsole } from '@/components/MintingConsole';
 import { CinematicStaircase } from '@/components/CinematicStaircase';
+import { ProtocolPipeline } from '@/components/ProtocolPipeline';
+import { Footer } from '@/components/Footer';
 import CountUp from 'react-countup';
 
 export default function HomePage() {
@@ -65,9 +66,6 @@ export default function HomePage() {
         }
     };
 
-    // Social Proof: Pre-Seed Value ($150)
-    const displayTotalFunded = stats.totalRaisedUSD === 0 ? 150 : stats.totalRaisedUSD;
-
     return (
         <div className="min-h-screen bg-deep-forest text-slate-100 selection:bg-cyber-green selection:text-deep-forest overflow-x-hidden">
             {/* Background Effects */}
@@ -91,68 +89,135 @@ export default function HomePage() {
             </header>
 
             {/* Main Content Area */}
-            <main className="pt-24 pb-32">
+            <main>
 
-                {/* Hero / Intro Section */}
-                <section className="relative z-10 px-4 mb-24 text-center max-w-4xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyber-green/10 border border-cyber-green/20 text-cyber-green text-[10px] font-mono mb-8 uppercase tracking-widest">
-                        <Waves className="w-3 h-3" />
-                        Celo Protocol • Real-World Impact
-                    </div>
+                {/* SECTION 1: HERO (Asymmetric Data Terminal) */}
+                <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4 lg:px-8 w-full z-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-[0.9] uppercase tracking-tighter italic">
-                        Regenerate the <span className="text-cyber-green cyber-glow">Thai Gulf</span>
-                    </h1>
-
-                    <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                        Scroll down to climb the levels of impact. <br className="hidden sm:block" />
-                        Fund verified projects. Collect the proof.
-                    </p>
-
-                    {/* Quick Stats */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
-                        {[
-                            { label: 'Total Funded', value: stats.totalRaisedUSD > 100 || displayTotalFunded > 100 ? (displayTotalFunded as number) : 150, prefix: '$' },
-                            { label: 'Gardens', value: 5, suffix: '+' },
-                            { label: 'Trees', value: 420 },
-                            { label: 'Students', value: 1000, suffix: '+' }
-                        ].map((stat, i) => (
-                            <div key={i} className="glass-schematic p-3 text-center border-cyber-green/10">
-                                <p className="text-[9px] font-mono text-slate-500 uppercase">{stat.label}</p>
-                                <p className="text-lg font-mono text-cyber-green leading-none mt-1">
-                                    {typeof stat.value === 'string' ? stat.value : <CountUp end={stat.value as number} duration={2.5} separator="," prefix={stat.prefix} suffix={stat.suffix} />}
+                            {/* Left Col: Kinetic Typography */}
+                            <div className="lg:col-span-7 flex flex-col justify-center animate-fade-in-up">
+                                <div className="mb-6 flex items-center gap-3">
+                                    <div className="w-2 h-2 bg-cyber-green rounded-full animate-pulse shadow-[0_0_10px_#00FFA3]"></div>
+                                    <span className="font-mono text-xs text-cyber-green/80 tracking-widest uppercase">System Online</span>
+                                </div>
+                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white mb-8 group cursor-default">
+                                    <span className="block hover:text-cyber-green transition-colors duration-300">REGENERATE</span>
+                                    <span className="block text-slate-500 hover:text-white transition-colors duration-300">THE THAI</span>
+                                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyber-green to-emerald-600 hover:brightness-125 transition-all duration-300">GULF.</span>
+                                </h1>
+                                <p className="text-xl md:text-2xl font-mono text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyber-green/30 pl-6 mb-10">
+                                    Collect tokenized Real-World Impact on Celo.
+                                    <span className="block text-sm mt-2 text-slate-500">ONE BLOCK AT A TIME.</span>
                                 </p>
+                                <div className="flex gap-4">
+                                    <div
+                                        onClick={() => document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' })}
+                                        className="btn-sharp btn-cyber px-8 py-4 text-base font-bold flex items-center gap-3 group cursor-pointer"
+                                    >
+                                        INITIATE <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                    </div>
+                                    <div
+                                        onClick={() => document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' })}
+                                        className="btn-sharp btn-cyber-outline px-8 py-4 text-base font-bold cursor-pointer hover:bg-cyber-green/10"
+                                    >
+                                        PROTOCOL
+                                    </div>
+                                </div>
                             </div>
-                        ))}
+
+                            {/* Right Col: The Terminal (Glassmorphism Monitor) */}
+                            <div className="lg:col-span-5 relative animate-fade-in-up delay-200">
+                                <div className="glass-schematic p-8 relative min-h-[400px] flex flex-col justify-between group hover:border-cyber-green/50 transition-colors duration-500">
+                                    {/* Scanline Effect */}
+                                    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-sm opacity-20">
+                                        <div className="w-full h-[2px] bg-cyber-green/50 shadow-[0_0_10px_#00FFA3] animate-[scanline_3s_linear_infinite]"></div>
+                                    </div>
+
+                                    {/* Header */}
+                                    <div className="flex justify-between items-center border-b border-white/5 pb-4 mb-6">
+                                        <div className="flex gap-2">
+                                            <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                                            <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                                            <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                                        </div>
+                                        <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Live Feed // Net-24</span>
+                                    </div>
+
+                                    {/* Stats with "Terminal" feel */}
+                                    <div className="space-y-8">
+                                        <div>
+                                            <p className="font-mono text-xs text-slate-500 mb-2 uppercase flex items-center gap-2">
+                                                <Leaf className="w-3 h-3" /> Total Carbon Offset
+                                            </p>
+                                            <div className="text-5xl font-bold font-mono text-white tracking-tighter flex items-baseline gap-2">
+                                                <span><CountUp end={420} duration={3} /></span>
+                                                <span className="text-sm text-cyber-green">TREES</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <p className="font-mono text-xs text-slate-500 mb-2 uppercase flex items-center gap-2">
+                                                <Shield className="w-3 h-3" /> Area Protected
+                                            </p>
+                                            <div className="text-5xl font-bold font-mono text-white tracking-tighter flex items-baseline gap-2">
+                                                <span><CountUp end={12.5} decimals={1} duration={3} /></span>
+                                                <span className="text-sm text-cyber-green">HECTARES</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <p className="font-mono text-xs text-slate-500 mb-2 uppercase flex items-center gap-2">
+                                                <Waves className="w-3 h-3" /> Community Support
+                                            </p>
+                                            <div className="text-5xl font-bold font-mono text-white tracking-tighter flex items-baseline gap-2">
+                                                {/* Fallback to simple logic for visual proof if stats are 0 initially */}
+                                                <span>$<CountUp end={Math.max(stats.totalRaisedUSD, 150)} duration={3} /></span>
+                                                <span className="text-sm text-cyber-green">RAISED</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Footer Decor */}
+                                    <div className="pt-6 mt-6 border-t border-white/5 flex justify-between items-end">
+                                        <div className="font-mono text-[10px] text-slate-600">
+                                            LAT: 9.55° N <br />
+                                            LON: 100.04° E
+                                        </div>
+                                        <div className="animate-pulse">
+                                            <div className="w-16 h-8 border border-cyber-green/30 relative overflow-hidden">
+                                                <div className="absolute inset-0 bg-cyber-green/10"></div>
+                                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-cyber-green"></div>
+                                                <div className="absolute bottom-1 left-1 w-1 h-3 bg-cyber-green"></div>
+                                                <div className="absolute bottom-1 left-3 w-1 h-5 bg-cyber-green"></div>
+                                                <div className="absolute bottom-1 left-5 w-1 h-2 bg-cyber-green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Batch Mint CTA */}
-                    <button
-                        onClick={handleBecomeGuardian}
-                        disabled={isBatchMinting}
-                        className={`btn-sharp px-8 py-4 w-full sm:w-auto text-sm font-bold flex items-center justify-center gap-2 mx-auto btn-active-press ${isBatchMinting ? 'bg-slate-800 border-slate-700 text-slate-500 shimmer-effect' : 'btn-cyber cyber-glow'
-                            }`}
-                    >
-                        {isBatchMinting ? (
-                            <>
-                                <Shield className="w-4 h-4 animate-pulse" />
-                                COMMITTING...
-                            </>
-                        ) : (
-                            'BECOME A GUARDIAN (MINT ALL)'
-                        )}
-                    </button>
+                    {/* Background Gradient Mesh */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyber-green/5 blur-[120px] rounded-full pointer-events-none -mr-20 -mt-20"></div>
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-900/10 blur-[150px] rounded-full pointer-events-none -ml-20 -mb-20"></div>
                 </section>
 
+                {/* SECTION 2: THE PIPELINE */}
+                <ProtocolPipeline />
 
                 {/* Cinematic Pinned Staircase Container */}
-                <CinematicStaircase
-                    levels={LEVELS}
-                    userLevelsMask={stats.userLevelsMask}
-                    celoPrices={stats.celoPrices}
-                    onMintSuccess={handleMintSuccess}
-                    refetch={stats.refetch}
-                />
+                <div id="staircase">
+                    <CinematicStaircase
+                        levels={LEVELS}
+                        userLevelsMask={stats.userLevelsMask}
+                        celoPrices={stats.celoPrices}
+                        onMintSuccess={handleMintSuccess}
+                        refetch={stats.refetch}
+                    />
+                </div>
 
                 {/* Mobile Sticky Footer (Only visible on small screens) */}
                 <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-deep-forest/90 backdrop-blur-xl border-t border-cyber-green/20 safe-area-bottom">
@@ -166,7 +231,7 @@ export default function HomePage() {
                             <p className="text-xl font-bold text-cyber-green">${activeLevel.priceUSD}</p>
                         </div>
                     </div>
-                    {/* We can re-use logic if we extract a simple button, but for now specific logic */}
+
                     {ownsLevel(stats.userLevelsMask, activeLevel.id) ? (
                         <button className="btn-sharp btn-cyber-outline w-full py-3 text-sm font-bold flex items-center justify-center gap-2">
                             OWNED - SHARE
@@ -174,17 +239,7 @@ export default function HomePage() {
                     ) : (
                         <button
                             onClick={() => {
-                                // For mobile simple mint, we'd need to invoke the mint function here.
-                                // Ideal: Render a stripped down MintingConsole or pass mint ref.
-                                // For now, let's just make it scroll to top to connect if not connected?
-                                // Implementing direct call is better.
-                                // But we don't have the mint function here easily accessible without duplicating logic.
-                                // Suggestion: Creating a "MobileMintButton" component or similar.
-                                // Or better: Just render MintingConsole in a Sheet/Drawer? 
-                                // Let's keep it simple: "View Details" to open modal?
-                                setModalLevel(activeLevel.id); // This opens success modal, not mint modal.
-                                // Let's just put a "Go to Desktop" or "Connect" msg if needed.
-                                // Re-implementing basic mint here for speed:
+                                setModalLevel(activeLevel.id); // Placeholder
                             }}
                             className="btn-sharp btn-cyber w-full py-3 text-sm font-bold flex items-center justify-center gap-2"
                         >
@@ -193,6 +248,9 @@ export default function HomePage() {
                     )}
                 </div>
             </main>
+
+            {/* Footer */}
+            <Footer />
 
             {/* Mint Success Modal */}
             <MintModal

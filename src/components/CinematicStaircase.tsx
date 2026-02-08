@@ -138,7 +138,7 @@ export function CinematicStaircase({
                         </div>
 
                         {/* Center Neon Connector */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-cyber-green/50 shadow-[0_0_15px_#00FFA3] z-20 hidden md:block origin-top"></div>
+                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-cyber-green shadow-[0_0_15px_#00FFA3] z-20 hidden md:block origin-top neon-spine"></div>
                     </div>
                 ))}
 

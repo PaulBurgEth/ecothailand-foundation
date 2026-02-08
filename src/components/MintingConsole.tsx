@@ -144,7 +144,7 @@ export function MintingConsole({
                                 onClick={handleMint}
                                 disabled={!isConnected || isLocked || isMinting}
                                 className={`
-                                    btn-sharp w-full py-4 text-sm font-bold flex items-center justify-center gap-2 btn-active-press transition-all
+                                    btn-sharp w-full py-4 text-sm font-bold flex items-center justify-center gap-2 btn-active-press transition-all hover-glitch
                                     ${!isConnected || isLocked
                                         ? 'bg-slate-800 border-slate-700 text-slate-600 cursor-not-allowed'
                                         : isMinting

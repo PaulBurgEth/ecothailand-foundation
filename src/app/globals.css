@@ -5,7 +5,7 @@
   --font-unbounded: var(--font-unbounded);
   --font-mono: var(--font-mono);
   --color-cyber-green: #00FFA3;
-  --color-deep-forest: #0A1F1C;
+  --color-deep-forest: #050F0D;
   --color-dark-sand: #1A1A18;
 }
 
@@ -72,6 +72,92 @@
   100% {
     transform: translateY(100%);
   }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0)
+  }
+
+  20% {
+    transform: translate(-2px, 2px)
+  }
+
+  40% {
+    transform: translate(-2px, -2px)
+  }
+
+  60% {
+    transform: translate(2px, 2px)
+  }
+
+  80% {
+    transform: translate(2px, -2px)
+  }
+
+  100% {
+    transform: translate(0)
+  }
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes pulse-spine {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    height: 100%;
+    box-shadow: 0 0 10px #00FFA3;
+  }
+
+  50% {
+    opacity: 0.8;
+    height: 100%;
+    box-shadow: 0 0 20px #00FFA3, 0 0 40px #00FFA3;
+  }
+}
+
+.neon-spine {
+  animation: pulse-spine 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
 }
 
 /* ============ Component Utilities ============ */

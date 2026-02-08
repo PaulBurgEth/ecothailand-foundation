@@ -56,18 +56,19 @@ export function CinematicStaircase({
             // i=0 is Level 2
             const selector = `#level-layer-${level.id}`;
 
+            // Ensure GSAP knows we start at 100% (matches CSS)
+            gsap.set(selector, { yPercent: 100 });
+
             // Timeline Animation: Ascension
-            // Start: yPercent: 100 (Below view)
-            // End: yPercent: 0 (In view, covering previous)
-            tl.fromTo(
+            // Animate TO yPercent: 0 (Slide UP from bottom)
+            tl.to(
                 selector,
-                { yPercent: 100 },
                 {
                     yPercent: 0,
                     ease: 'none',
                     duration: 1
                 },
-                i // Stagger start time
+                i // Insert at absolute time (0, 1, 2, 3)
             );
         });
 

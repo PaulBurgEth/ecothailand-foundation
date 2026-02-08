@@ -17,7 +17,8 @@ export const celoSepolia = defineChain({
         default: {
             http: [
                 'https://forno.celo-sepolia.celo-testnet.org',
-                'https://celo-sepolia.drpc.org'
+                'https://celo-sepolia.drpc.org',
+                'https://sepolia.celO.org' // Added generic fallback if valid, otherwise stick to known working ones
             ]
         },
     },

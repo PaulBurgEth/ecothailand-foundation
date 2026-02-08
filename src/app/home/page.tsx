@@ -87,13 +87,11 @@ export default function HomePage() {
             <header className="fixed top-0 left-0 right-0 z-50 border-b border-cyber-green/10 backdrop-blur-md bg-deep-forest/80">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-cyber-green flex items-center justify-center cyber-glow">
-                            <Leaf className="w-5 h-5 text-deep-forest" />
-                        </div>
-                        <div className="flex flex-col leading-none">
-                            <span className="text-lg font-bold tracking-tighter uppercase font-mono hidden sm:inline text-white">ECOTHAILAND</span>
-                            <a href="https://ecosynthesisx.com" target="_blank" className="text-[9px] font-mono text-cyber-green tracking-widest hover:underline uppercase">Powered by ECOSYNTHESISX</a>
-                        </div>
+                        <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                            {/* EcoSynthesisX Logo */}
+                            <img src="/images/ecosynthesisx-logo.jpg" alt="EcoSynthesisX" className="w-10 h-10 rounded-full border border-cyber-green/50 shadow-[0_0_10px_#00FFA3]" />
+                            <span className="text-sm font-bold tracking-widest uppercase font-mono text-cyber-green">ECOSYNTHESISX</span>
+                        </a>
                     </div>
                     <ConnectButton showBalance={false} chainStatus="icon" />
                 </div>

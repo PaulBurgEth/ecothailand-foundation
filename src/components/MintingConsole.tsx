@@ -40,21 +40,30 @@ export function MintingConsole({
         setIsMinting(true);
         setLastError(null);
         try {
+            const levelId = BigInt(level.id);
+            // Ensure price is BigInt
+            const priceString = TIER_CELO_PRICES[level.id as keyof typeof TIER_CELO_PRICES].toString();
+            const price = parseEther(priceString);
+
+            console.log(`[Mint Debug] Level: ${levelId}, Price: ${price} wei`);
+
             await mintAsync({
                 address: IMPACT_CONTRACT_ADDRESS,
                 abi: IMPACT_CONTRACT_ABI,
                 functionName: 'mintLevel',
-                args: [BigInt(level.id)],
-                value: parseEther(TIER_CELO_PRICES[level.id as keyof typeof TIER_CELO_PRICES].toString()),
+                args: [levelId],
+                value: price,
             });
         } catch (error: any) {
             console.error('Mint error:', error);
             setIsMinting(false);
 
-            const msg = error.message?.toLowerCase() || '';
-            if (msg.includes('user rejected')) {
+            const msg = error.message || JSON.stringify(error);
+            alert(`Mint Error: ${msg}`); // Visible alert for user
+
+            if (msg.toLowerCase().includes('user rejected')) {
                 setLastError('Transaction rejected');
-            } else if (msg.includes('insufficient funds')) {
+            } else if (msg.toLowerCase().includes('insufficient funds')) {
                 setLastError('Insufficient CELO funds');
             } else {
                 setLastError('Transaction failed');

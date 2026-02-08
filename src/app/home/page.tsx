@@ -10,7 +10,7 @@ import { useImpactStats, ownsLevel } from '@/hooks/useImpactStats';
 import { parseEther } from 'viem';
 import { MintModal } from '@/components/MintModal';
 import { MintingConsole } from '@/components/MintingConsole';
-import { ImpactStack } from '@/components/ImpactStack';
+import { CinematicStaircase } from '@/components/CinematicStaircase';
 import CountUp from 'react-countup';
 
 export default function HomePage() {
@@ -145,34 +145,14 @@ export default function HomePage() {
                 </section>
 
 
-                {/* Sticky Stack Container */}
-                <div className="relative">
-                    {/* The Floating UI Navigation (Sticky/Fixed) */}
-                    <div className="fixed inset-0 pointer-events-none z-40 flex items-center justify-center px-4">
-                        {/* Only show on large screens or handle mobile differently? 
-                            For mobile, we want it at the bottom. 
-                            For Desktop, center.
-                        */}
-                        <div className="w-full max-w-lg hidden md:block pointer-events-auto">
-                            <div className="transition-all duration-500 transform">
-                                <MintingConsole
-                                    level={activeLevel}
-                                    userLevelsMask={stats.userLevelsMask}
-                                    celoPrice={stats.celoPrices[activeLevelIndex] || 0n}
-                                    onMintSuccess={handleMintSuccess}
-                                    refetch={stats.refetch}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* The Stack of Images */}
-                    <ImpactStack
-                        levels={LEVELS}
-                        activeLevelId={activeLevelId}
-                        onActiveLevelChange={setActiveLevelId}
-                    />
-                </div>
+                {/* Cinematic Pinned Staircase Container */}
+                <CinematicStaircase
+                    levels={LEVELS}
+                    userLevelsMask={stats.userLevelsMask}
+                    celoPrices={stats.celoPrices}
+                    onMintSuccess={handleMintSuccess}
+                    refetch={stats.refetch}
+                />
 
                 {/* Mobile Sticky Footer (Only visible on small screens) */}
                 <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-deep-forest/90 backdrop-blur-xl border-t border-cyber-green/20 safe-area-bottom">

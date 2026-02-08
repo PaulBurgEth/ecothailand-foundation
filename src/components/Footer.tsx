@@ -25,9 +25,16 @@ export function Footer() {
                         <p className="font-mono text-sm text-cyber-green uppercase tracking-widest">
                             Impact Product
                         </p>
+                        <div className="flex items-center gap-2 mt-2 opacity-80">
+                            <span className="text-[10px] font-mono text-slate-400 uppercase">Powered by</span>
+                            <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-1.5 hover:opacity-100 transition-opacity">
+                                <img src="/images/ecosynthesisx-logo.jpg" alt="X" className="w-4 h-4 rounded-full border border-cyber-green/30" />
+                                <span className="text-[10px] font-bold text-cyber-green tracking-wider uppercase">ECOSYNTHESISX</span>
+                            </a>
+                        </div>
                     </div>
 
-                    {/* Social Links */}
+                    {/* Social Links (Removed X/Twitter as requested) */}
                     <div className="flex items-center gap-8 mt-4">
                         <a href="https://www.facebook.com/EcoThailandFoundation" target="_blank" className="text-slate-400 hover:text-blue-500 transition-colors transform hover:scale-110">
                             <Facebook className="w-8 h-8" />
@@ -35,10 +42,6 @@ export function Footer() {
                         <a href="https://ecothailand.org" target="_blank" className="text-slate-400 hover:text-cyber-green transition-colors transform hover:scale-110">
                             <Leaf className="w-8 h-8" />
                         </a>
-                        <a href="https://twitter.com/EcoThailand" target="_blank" className="text-slate-400 hover:text-sky-400 transition-colors transform hover:scale-110">
-                            <Twitter className="w-8 h-8" />
-                        </a>
-                        {/* Add more socials if needed */}
                     </div>
 
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyber-green/50 to-transparent mt-8"></div>

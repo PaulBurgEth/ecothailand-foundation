@@ -14,10 +14,16 @@ export const celoSepolia = defineChain({
         symbol: 'CELO',
     },
     rpcUrls: {
-        default: { http: ['https://forno.celo-sepolia.celo-testnet.org'] },
+        default: {
+            http: [
+                'https://alfajores-forno.celo-testnet.org',
+                'https://celo-alfajores.drpc.org',
+                'https://forno.celo-sepolia.celo-testnet.org'
+            ]
+        },
     },
     blockExplorers: {
-        default: { name: 'CeloScan', url: 'https://sepolia.celoscan.io' },
+        default: { name: 'CeloScan', url: 'https://alfajores.celoscan.io' },
     },
     testnet: true,
 });

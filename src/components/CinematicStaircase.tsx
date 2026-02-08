@@ -32,18 +32,18 @@ export function CinematicStaircase({
     const activePrice = celoPrices[activeLevelIndex] || 0n;
 
     useGSAP(() => {
+        if (!trackRef.current || !containerRef.current) return;
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: trackRef.current,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: true,
-                pin: containerRef.current,
                 onUpdate: (self) => {
                     // Update active index based on progress
+                    // 4 transitions (20% each step? No, 100% / 4 = 25%)
                     const p = self.progress;
-                    // 4 transitions for 5 levels (1->2, 2->3, 3->4, 4->5)
-                    // Range per level = 1 / 4 = 0.25
                     let newIndex = Math.floor(p / 0.25);
                     if (newIndex >= levels.length) newIndex = levels.length - 1;
                     setActiveLevelIndex(newIndex);
@@ -51,67 +51,63 @@ export function CinematicStaircase({
             }
         });
 
-        // Animate Levels 2-5
+        // Loop through Levels 2-5 (Indices 1-4)
+        // Level 1 (Index 0) is static base.
         levels.slice(1).forEach((level, i) => {
-            // i=0 is Level 2
             const selector = `#level-layer-${level.id}`;
 
-            // Ensure GSAP knows we start at 100% (matches CSS)
+            // STRICT INITIALIZATION: Start below viewport
             gsap.set(selector, { yPercent: 100 });
 
-            // Timeline Animation: Ascension
-            // Animate TO yPercent: 0 (Slide UP from bottom)
-            tl.to(
-                selector,
-                {
-                    yPercent: 0,
-                    ease: 'none',
-                    duration: 1
-                },
-                i // Insert at absolute time (0, 1, 2, 3)
-            );
+            // Animate UP to 0% (Cover previous level)
+            tl.to(selector, {
+                yPercent: 0,
+                ease: 'none',
+                duration: 1
+            }); // Sequential animation
         });
 
-    }, { scope: containerRef, dependencies: [levels] });
+    }, { scope: trackRef, dependencies: [levels] });
 
     return (
-        <div ref={trackRef} className="relative w-full" style={{ height: `${levels.length * 100}vh` }}>
-            {/* The Pinned Viewport */}
-            <div
-                ref={containerRef}
-                className="h-screen w-full overflow-hidden relative"
-            >
-                {/* Images Stack */}
+        // 1. The Setup (The Track) - 500vh
+        <div ref={trackRef} className="relative w-full h-[500vh] staircase-track">
+
+            {/* The Viewport - Sticky 100vh */}
+            <div ref={containerRef} className="sticky top-0 h-screen w-full overflow-hidden staircase-viewport">
+
+                {/* 2. The Layers (5 Separate Images) */}
                 {levels.map((level, index) => (
                     <div
                         key={level.id}
                         id={`level-layer-${level.id}`}
-                        className="absolute inset-0 w-full h-full flex items-center justify-center"
+                        className="absolute inset-0 w-full h-full"
                         style={{
-                            zIndex: index + 1,
-                            // Level 1 is static (visible), others start below via CSS to prevent flash
+                            zIndex: index + 1, // Z-Index 1-5
+                            // Level 1 is naturally visible. Levels 2-5 start translated via GSAP, 
+                            // but we add CSS default here to prevent FOUC
                             transform: index === 0 ? 'none' : 'translateY(100%)'
                         }}
                     >
-                        <div className="relative w-full h-full mask-stack-blend">
+                        {/* Image Container */}
+                        <div className="relative w-full h-full">
                             <img
                                 src={level.image}
                                 alt={level.name}
                                 className="w-full h-full object-cover"
                             />
-                            {/* Gradient Scrim for Text Readability: VISUAL POLISH */}
-                            <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-deep-forest via-deep-forest/80 to-transparent pointer-events-none" />
+                            {/* 3. Readability Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80 pointer-events-none" />
                         </div>
-
-                        {/* Center Neon Connector */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-cyber-green shadow-[0_0_15px_#00FFA3] z-20 hidden md:block origin-top neon-spine"></div>
                     </div>
                 ))}
 
-                {/* Floating UI Layer (Z-Index 50) */}
-                <div className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center">
-                    <div className="w-full max-w-lg pointer-events-auto transition-opacity duration-500 px-4 md:px-0 transform scale-90 md:scale-100 origin-bottom md:origin-center">
-                        {/* Console updates based on state */}
+                {/* VISUAL POLISH: Neon Spine (Z-Index 10) */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#00FFA3] shadow-[0_0_15px_#00FFA3] z-10 hidden md:block -translate-x-1/2 pointer-events-none neon-spine"></div>
+
+                {/* MINT CONSOLE (Z-Index 20) */}
+                <div className="absolute inset-0 z-20 pointer-events-none flex items-end pb-12 md:pb-24 justify-center">
+                    <div className="w-full max-w-lg pointer-events-auto px-4 md:px-0 transform scale-90 md:scale-100 origin-bottom transition-all duration-500">
                         <MintingConsole
                             level={activeLevel}
                             userLevelsMask={userLevelsMask}
@@ -121,6 +117,7 @@ export function CinematicStaircase({
                         />
                     </div>
                 </div>
+
             </div>
         </div>
     );

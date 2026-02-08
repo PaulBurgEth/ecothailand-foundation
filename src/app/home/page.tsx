@@ -110,7 +110,7 @@ export default function HomePage() {
                             <div className="lg:col-span-7 flex flex-col justify-center animate-fade-in-up">
                                 <div className="mb-6 flex items-center gap-3">
                                     <div className="w-2 h-2 bg-cyber-green rounded-full animate-pulse shadow-[0_0_10px_#00FFA3]"></div>
-                                    <span className="font-mono text-xs text-cyber-green/80 tracking-widest uppercase">System Online v2.1</span>
+                                    <span className="font-mono text-xs text-cyber-green/80 tracking-widest uppercase">System Online v3.0 (Sticky Stack)</span>
                                 </div>
                                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white mb-8 group cursor-default">
                                     <span className="block hover:text-cyber-green transition-colors duration-300">REGENERATE</span>

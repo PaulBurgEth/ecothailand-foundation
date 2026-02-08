@@ -21,22 +21,34 @@ export function Footer() {
                         </div>
                         <div className="flex flex-col">
                             <span className="font-mono text-xs text-slate-500 uppercase tracking-widest leading-none mb-1">Powered By</span>
-                            <span className="text-xl font-black text-white tracking-tighter leading-none">ECOSYNTHESISX</span>
+                            <a href="https://ecosynthesisx.com" target="_blank" rel="noopener noreferrer" className="text-xl font-black text-white tracking-tighter leading-none hover:text-cyber-green transition-colors">ECOSYNTHESISX</a>
                         </div>
                     </div>
 
                     {/* Center: Terminal Links */}
                     <div className="flex items-center gap-8">
-                        {['TERMINAL', 'FAQ', 'PROOF', 'GOVERNANCE'].map((link) => (
-                            <a
-                                key={link}
-                                href={`#${link.toLowerCase()}`}
-                                className="font-mono text-xs text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-widest relative group"
-                            >
-                                {link}
-                                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-cyber-green transition-all group-hover:w-full"></span>
-                            </a>
-                        ))}
+                        <a
+                            href="#staircase"
+                            className="font-mono text-xs text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-widest relative group"
+                        >
+                            TERMINAL
+                            <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-cyber-green transition-all group-hover:w-full"></span>
+                        </a>
+                        <a
+                            href="#faq" // Currently no FAQ section exists, but user requested this anchors to it. Or maybe we should link to external?
+                            // "Link FAQ to the FAQ Section anchor (#faq)."
+                            className="font-mono text-xs text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-widest relative group"
+                        >
+                            FAQ
+                            <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-cyber-green transition-all group-hover:w-full"></span>
+                        </a>
+                        <button
+                            onClick={() => alert("Verification Protocol Active. View on Celo Explorer.")} // Placeholder as "Modal" logic is in parent
+                            className="font-mono text-xs text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-widest relative group"
+                        >
+                            PROOF
+                            <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-cyber-green transition-all group-hover:w-full"></span>
+                        </button>
                     </div>
 
                     {/* Right: Status Indicator */}
@@ -55,13 +67,13 @@ export function Footer() {
                 {/* Bottom Bar: Copyright & Socials */}
                 <div className="flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 gap-6">
                     <p className="font-mono text-[10px] text-slate-600 uppercase">
-                        © 2026 EcoThailand Impact Protocol. All rights reserved. <br className="md:hidden" /> Designed for the Solar Future.
+                        © 2025 <a href="https://ecothailand.org" target="_blank" className="hover:text-cyber-green">EcoThailand Impact Product</a>. All rights reserved. <br className="md:hidden" /> Designed for the Solar Future. Verifying Impact on Celo.
                     </p>
 
                     <div className="flex items-center gap-6">
-                        <a href="#" className="text-slate-500 hover:text-cyber-green transition-colors"><Github className="w-4 h-4" /></a>
-                        <a href="#" className="text-slate-500 hover:text-cyber-green transition-colors"><Twitter className="w-4 h-4" /></a>
-                        <a href="#" className="text-slate-500 hover:text-cyber-green transition-colors"><Disc className="w-4 h-4" /></a>
+                        <a href="https://github.com/EcoThailand" target="_blank" className="text-slate-500 hover:text-cyber-green transition-colors"><Github className="w-4 h-4" /></a>
+                        <a href="https://twitter.com/EcoThailand" target="_blank" className="text-slate-500 hover:text-cyber-green transition-colors"><Twitter className="w-4 h-4" /></a>
+                        <a href="https://ecothailand.org" target="_blank" className="text-slate-500 hover:text-cyber-green transition-colors"><Disc className="w-4 h-4" /></a>
                     </div>
                 </div>
             </div>

@@ -66,6 +66,13 @@ export default function HomePage() {
         }
     };
 
+    // VISUAL POLISH: Data Logic (N/A Rule)
+    // IF totalRaised > 50: Show '$X'
+    // IF totalRaised <= 50: Show 'N/A' or 'EARLY'
+    const displayFunded = stats.totalRaisedUSD > 50
+        ? <><span className="text-xl">$</span><CountUp end={stats.totalRaisedUSD} duration={3} /></>
+        : <span className="text-2xl">EARLY</span>;
+
     return (
         <div className="min-h-screen bg-deep-forest text-slate-100 selection:bg-cyber-green selection:text-deep-forest overflow-x-hidden">
             {/* Background Effects */}
@@ -75,14 +82,17 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.05] bg-repeat"></div>
             </div>
 
-            {/* Header */}
+            {/* Header with EcoSynthesisX Branding */}
             <header className="fixed top-0 left-0 right-0 z-50 border-b border-cyber-green/10 backdrop-blur-md bg-deep-forest/80">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-cyber-green flex items-center justify-center cyber-glow">
                             <Leaf className="w-5 h-5 text-deep-forest" />
                         </div>
-                        <span className="text-lg font-bold tracking-tighter uppercase font-mono hidden sm:inline">ECOTHAILAND</span>
+                        <div className="flex flex-col leading-none">
+                            <span className="text-lg font-bold tracking-tighter uppercase font-mono hidden sm:inline text-white">ECOTHAILAND</span>
+                            <a href="https://ecosynthesisx.com" target="_blank" className="text-[9px] font-mono text-cyber-green tracking-widest hover:underline uppercase">Powered by ECOSYNTHESISX</a>
+                        </div>
                     </div>
                     <ConnectButton showBalance={false} chainStatus="icon" />
                 </div>
@@ -94,7 +104,8 @@ export default function HomePage() {
                 {/* SECTION 1: HERO (Asymmetric Data Terminal) */}
                 <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
                     <div className="max-w-7xl mx-auto px-4 lg:px-8 w-full z-10">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        {/* VISUAL POLISH: Added gap-20 to prevent collision */}
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
                             {/* Left Col: Kinetic Typography */}
                             <div className="lg:col-span-7 flex flex-col justify-center animate-fade-in-up">
@@ -129,7 +140,8 @@ export default function HomePage() {
 
                             {/* Right Col: The Terminal (Glassmorphism Monitor) */}
                             <div className="lg:col-span-5 relative animate-fade-in-up delay-200">
-                                <div className="glass-schematic p-8 relative min-h-[400px] flex flex-col justify-between group hover:border-cyber-green/50 transition-colors duration-500">
+                                {/* VISUAL POLISH: Added border and shadow */}
+                                <div className="glass-schematic p-8 relative min-h-[400px] flex flex-col justify-between group transition-colors duration-500 border border-cyber-green/30 shadow-[0_0_30px_-10px_rgba(0,255,163,0.1)]">
                                     {/* Scanline Effect */}
                                     <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-sm opacity-20">
                                         <div className="w-full h-[2px] bg-cyber-green/50 shadow-[0_0_10px_#00FFA3] animate-[scanline_3s_linear_infinite]"></div>
@@ -172,8 +184,7 @@ export default function HomePage() {
                                                 <Waves className="w-3 h-3" /> Community Support
                                             </p>
                                             <div className="text-5xl font-bold font-mono text-white tracking-tighter flex items-baseline gap-2">
-                                                {/* Fallback to simple logic for visual proof if stats are 0 initially */}
-                                                <span>$<CountUp end={Math.max(stats.totalRaisedUSD, 150)} duration={3} /></span>
+                                                {displayFunded}
                                                 <span className="text-sm text-cyber-green">RAISED</span>
                                             </div>
                                         </div>

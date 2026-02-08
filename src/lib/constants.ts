@@ -60,7 +60,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Workshops', value: '3+' }
     ],
     description:
-      'Directly funds community gardens established in response to the COVID-19 crisis, providing sustainable food systems.',
+      'Verifies community gardens established in response to the COVID-19 crisis, providing sustainable food systems.',
     image: '/images/level-1.jpg',
     proofLink: 'https://cleanphangan.com',
   },
@@ -74,7 +74,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Trees', value: '200' }
     ],
     description:
-      'Cataloging and preserving key trees on the Gulf Islands, identifying species and calculating carbon capture.',
+      'Tokenized proof of key trees preserved on the Gulf Islands, identifying species and calculating carbon capture.',
     image: '/images/level-2.png',
     proofLink: 'https://cleanphangan.com',
   },
@@ -88,7 +88,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Programs', value: '5+' }
     ],
     description:
-      'Supporting Sustainable, Eco, Agro, and Community Tourism through workshops and MicroGrants.',
+      'Verifies Sustainable, Eco, Agro, and Community Tourism training through workshops and MicroGrants.',
     image: '/images/level-3.png',
     proofLink: 'https://cleanphangan.com',
   },
@@ -102,7 +102,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Programs', value: '1' }
     ],
     description:
-      'Funding beach contaminant analysis and nature spy sessions for the Environmental Guardianship program.',
+      'Tokenized proof of beach contaminant analysis and nature spy sessions for the Environmental Guardianship program.',
     image: '/images/level-4.png',
     proofLink: 'https://cleanphangan.com',
   },
@@ -116,7 +116,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Waste/Mo', value: '5t' }
     ],
     description:
-      'Reducing bio waste and ocean plastic through Bio Char and community composting facilities.',
+      'Verifies the reduction of bio waste and ocean plastic through Bio Char and community composting facilities.',
     image: '/images/level-5.png',
     proofLink: 'https://cleanphangan.com',
   },

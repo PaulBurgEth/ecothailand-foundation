@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-inter: var(--font-inter);
+  --font-unbounded: var(--font-unbounded);
+  --font-mono: var(--font-mono);
+  --color-cyber-green: #00FFA3;
+  --color-deep-forest: #0A1F1C;
+  --color-dark-sand: #1A1A18;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============ Typography ============ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply font-inter bg-deep-forest text-slate-100;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-unbounded tracking-tight;
+  }
+
+  .font-mono {
+    @apply font-mono;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============ Custom Animations ============ */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(0, 255, 163, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 163, 0.4);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* ============ Component Utilities ============ */
+
+.btn-sharp {
+  @apply relative overflow-hidden transition-all duration-300 font-mono uppercase tracking-widest text-sm border-2;
+  border-radius: 0;
+}
+
+.btn-cyber {
+  @apply bg-cyber-green text-deep-forest border-cyber-green hover:bg-transparent hover:text-cyber-green active:scale-95;
+}
+
+.btn-cyber-outline {
+  @apply bg-transparent text-cyber-green border-cyber-green hover:bg-cyber-green/10;
+}
+
+.glass-schematic {
+  @apply bg-deep-forest/60 backdrop-blur-xl border border-cyber-green/20 relative overflow-hidden;
+  border-radius: 0;
+}
+
+.glass-schematic::before {
+  content: '';
+  @apply absolute inset-0 pointer-events-none opacity-[0.03];
+  background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 163, .5) 25%, rgba(0, 255, 163, .5) 26%, transparent 27%, transparent 74%, rgba(0, 255, 163, .5) 75%, rgba(0, 255, 163, .5) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 163, .5) 25%, rgba(0, 255, 163, .5) 26%, transparent 27%, transparent 74%, rgba(0, 255, 163, .5) 75%, rgba(0, 255, 163, .5) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+}
+
+.cyber-glow {
+  @apply shadow-[0_0_20px_rgba(0, 255, 163, 0.3)];
+}
+
+.cyber-glow-hover {
+  @apply transition-all duration-300;
+}
+
+.cyber-glow-hover:hover {
+  @apply -translate-y-1 shadow-[0_10px_30px_-10px_rgba(0, 255, 163, 0.3)] border-cyber-green;
+}
+
+.card-hover-effect {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover-effect:hover {
+  @apply -translate-y-[4px] shadow-[0_10px_30px_-10px_rgba(0, 255, 163, 0.3)] border-cyber-green;
+}
+
+.btn-active-press:active {
+  @apply scale-[0.98];
+}
+
+.shimmer-effect {
+  @apply relative overflow-hidden;
+}
+
+.shimmer-effect::after {
+  @apply absolute top-0 left-0 w-full h-full content-[''] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite];
+}
+
+/* ============ Custom Scrollbar ============ */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-deep-forest;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cyber-green/30 hover:bg-cyber-green/50;
+}
+
+/* ============ Selection ============ */
+
+::selection {
+  @apply bg-cyber-green text-deep-forest;
+}
+
+/* ============ Status Tags ============ */
+
+.tag-mono {
+  @apply font-mono text-[10px] uppercase border px-2 py-0.5 tracking-tighter;
 }

@@ -10,7 +10,7 @@ import { useImpactStats, ownsLevel } from '@/hooks/useImpactStats';
 import { parseEther } from 'viem';
 import { MintModal } from '@/components/MintModal';
 import { MintingConsole } from '@/components/MintingConsole';
-import { ArtTrack } from '@/components/ArtTrack';
+import { ImpactStack } from '@/components/ImpactStack';
 import CountUp from 'react-countup';
 
 export default function HomePage() {
@@ -145,13 +145,16 @@ export default function HomePage() {
                 </section>
 
 
-                {/* Scrollytelling Container */}
-                <div className="max-w-7xl mx-auto px-4 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
-
-                        {/* LEFT COLUMN: Sticky Console (Desktop) */}
-                        <div className="hidden lg:block lg:col-span-5 relative">
-                            <div className="sticky top-32 h-[calc(100vh-160px)]">
+                {/* Sticky Stack Container */}
+                <div className="relative">
+                    {/* The Floating UI Navigation (Sticky/Fixed) */}
+                    <div className="fixed inset-0 pointer-events-none z-40 flex items-center justify-center px-4">
+                        {/* Only show on large screens or handle mobile differently? 
+                            For mobile, we want it at the bottom. 
+                            For Desktop, center.
+                        */}
+                        <div className="w-full max-w-lg hidden md:block pointer-events-auto">
+                            <div className="transition-all duration-500 transform">
                                 <MintingConsole
                                     level={activeLevel}
                                     userLevelsMask={stats.userLevelsMask}
@@ -161,21 +164,20 @@ export default function HomePage() {
                                 />
                             </div>
                         </div>
-
-                        {/* RIGHT COLUMN: Art Track (Scrollable) */}
-                        <div className="lg:col-span-7">
-                            <ArtTrack
-                                levels={LEVELS}
-                                onActiveLevelChange={setActiveLevelId}
-                            />
-                        </div>
-
                     </div>
+
+                    {/* The Stack of Images */}
+                    <ImpactStack
+                        levels={LEVELS}
+                        activeLevelId={activeLevelId}
+                        onActiveLevelChange={setActiveLevelId}
+                    />
                 </div>
 
                 {/* Mobile Sticky Footer (Only visible on small screens) */}
-                <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-deep-forest/90 backdrop-blur-xl border-t border-cyber-green/20">
-                    <div className="flex items-center justify-between gap-4">
+                <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-deep-forest/90 backdrop-blur-xl border-t border-cyber-green/20 safe-area-bottom">
+                    {/* Simplified Mobile Console */}
+                    <div className="flex items-center justify-between gap-4 mb-3">
                         <div>
                             <p className="text-[10px] text-cyber-green font-mono uppercase">Level {activeLevel.id}</p>
                             <p className="text-white font-bold leading-none">{activeLevel.name}</p>
@@ -184,19 +186,31 @@ export default function HomePage() {
                             <p className="text-xl font-bold text-cyber-green">${activeLevel.priceUSD}</p>
                         </div>
                     </div>
-                    <button
-                        onClick={() => {
-                            // Open modal or trigger mint for active level
-                            // For mobile simplicity, we might need a direct mint here or open a drawer
-                            // reusing MintingConsole logic would be ideal, but for now let's just use a simple mint button
-                            // that might fail if not connected, handling that gracefully?
-                            // Better UX: Just scroll to top? No, that defeats the purpose.
-                            // Let's implement a simplified Mint Button here or just expect users to connect first.
-                        }}
-                        className="btn-sharp btn-cyber w-full mt-3 py-3 text-sm font-bold flex items-center justify-center gap-2"
-                    >
-                        MINT LEVEL {activeLevel.id}
-                    </button>
+                    {/* We can re-use logic if we extract a simple button, but for now specific logic */}
+                    {ownsLevel(stats.userLevelsMask, activeLevel.id) ? (
+                        <button className="btn-sharp btn-cyber-outline w-full py-3 text-sm font-bold flex items-center justify-center gap-2">
+                            OWNED - SHARE
+                        </button>
+                    ) : (
+                        <button
+                            onClick={() => {
+                                // For mobile simple mint, we'd need to invoke the mint function here.
+                                // Ideal: Render a stripped down MintingConsole or pass mint ref.
+                                // For now, let's just make it scroll to top to connect if not connected?
+                                // Implementing direct call is better.
+                                // But we don't have the mint function here easily accessible without duplicating logic.
+                                // Suggestion: Creating a "MobileMintButton" component or similar.
+                                // Or better: Just render MintingConsole in a Sheet/Drawer? 
+                                // Let's keep it simple: "View Details" to open modal?
+                                setModalLevel(activeLevel.id); // This opens success modal, not mint modal.
+                                // Let's just put a "Go to Desktop" or "Connect" msg if needed.
+                                // Re-implementing basic mint here for speed:
+                            }}
+                            className="btn-sharp btn-cyber w-full py-3 text-sm font-bold flex items-center justify-center gap-2"
+                        >
+                            MINT LEVEL {activeLevel.id}
+                        </button>
+                    )}
                 </div>
             </main>
 

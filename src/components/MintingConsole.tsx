@@ -80,7 +80,7 @@ export function MintingConsole({
     }, [isConfirmed, isReceiptError, isMinting, refetch, onMintSuccess, level.id]);
 
     return (
-        <div className="glass-schematic p-6 border-cyber-green/20 h-full flex flex-col transition-all duration-500">
+        <div className="glass-schematic p-6 border-cyber-green/20 w-full max-w-md mx-auto backdrop-blur-xl bg-deep-forest/60 transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
             {/* Header: Level & Status */}
             <div className="flex justify-between items-start mb-6">
                 <div>
@@ -99,15 +99,15 @@ export function MintingConsole({
             </div>
 
             {/* Description */}
-            <p className="text-slate-400 text-sm leading-relaxed mb-8 border-l-2 border-cyber-green/20 pl-4">
+            <p className="text-slate-300 text-sm leading-relaxed mb-8 border-l-2 border-cyber-green/50 pl-4 font-medium drop-shadow-md">
                 {level.description}
             </p>
 
             {/* Impact Stats */}
             <div className="grid grid-cols-2 gap-3 mb-8">
                 {level.impactStats.map((stat, i) => (
-                    <div key={i} className="bg-black/40 p-3 border border-cyber-green/10">
-                        <p className="text-[10px] text-slate-500 font-mono uppercase mb-1">{stat.label}</p>
+                    <div key={i} className="bg-black/60 p-3 border border-cyber-green/20">
+                        <p className="text-[10px] text-slate-400 font-mono uppercase mb-1">{stat.label}</p>
                         <p className="text-cyber-green font-mono text-lg">{stat.value}</p>
                     </div>
                 ))}
@@ -115,17 +115,17 @@ export function MintingConsole({
 
             <div className="mt-auto">
                 {/* Proof Link */}
-                <a href={level.proofLink} target="_blank" className="inline-flex items-center gap-2 text-xs font-mono text-slate-500 hover:text-cyber-green mb-6 transition-colors group">
+                <a href={level.proofLink} target="_blank" className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-cyber-green mb-6 transition-colors group">
                     VIEW ON-CHAIN PROOF <ExternalLink className="w-3 h-3 group-hover:stroke-cyber-green" />
                 </a>
 
                 {/* Price & Action */}
                 <div className="flex items-end justify-between gap-4">
                     <div>
-                        <p className="text-[10px] text-slate-500 font-mono uppercase mb-1">Price</p>
+                        <p className="text-[10px] text-slate-400 font-mono uppercase mb-1">Price</p>
                         <div className="flex items-baseline gap-2">
-                            <span className="text-3xl font-bold text-white">${level.priceUSD}</span>
-                            <span className="text-xs text-slate-500 font-mono">
+                            <span className="text-3xl font-bold text-white drop-shadow-md">${level.priceUSD}</span>
+                            <span className="text-xs text-slate-400 font-mono">
                                 ≈ {celoPrice > 0n ? formatEther(celoPrice).slice(0, 5) : TIER_CELO_PRICES[level.id as keyof typeof TIER_CELO_PRICES]} CELO
                             </span>
                         </div>
@@ -134,12 +134,12 @@ export function MintingConsole({
                     {isOwned ? (
                         <button
                             onClick={() => onMintSuccess(level.id)}
-                            className="btn-sharp btn-cyber-outline w-full max-w-[180px] py-3 text-sm flex items-center justify-center gap-2"
+                            className="btn-sharp btn-cyber-outline w-full max-w-[150px] py-3 text-xs flex items-center justify-center gap-2"
                         >
                             SHARE IMPACT
                         </button>
                     ) : (
-                        <div className="flex flex-col gap-2 w-full max-w-[200px]">
+                        <div className="flex flex-col gap-2 w-full max-w-[180px]">
                             <button
                                 onClick={handleMint}
                                 disabled={!isConnected || isLocked || isMinting}

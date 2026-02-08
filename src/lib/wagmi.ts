@@ -16,14 +16,13 @@ export const celoSepolia = defineChain({
     rpcUrls: {
         default: {
             http: [
-                'https://alfajores-forno.celo-testnet.org', // Fallback for public gateways often mixed
                 'https://forno.celo-sepolia.celo-testnet.org',
-                'https://celo-sepolia.drpc.org' // Adding DRPC for Sepolia if available, or keep standard
+                'https://celo-sepolia.drpc.org'
             ]
         },
     },
     blockExplorers: {
-        default: { name: 'CeloScan', url: 'https://alfajores.celoscan.io' },
+        default: { name: 'CeloScan', url: 'https://sepolia.celoscan.io' },
     },
     testnet: true,
 });

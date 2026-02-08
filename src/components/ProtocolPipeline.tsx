@@ -92,26 +92,39 @@ export function ProtocolPipeline() {
 
             <div className="relative">
                 {/* Background SVG Cable (Desktop) */}
-                <svg className="absolute top-0 left-0 w-full h-full z-0 hidden md:block" preserveAspectRatio="none">
-                    {/* Define the path roughly connecting the zigzag points */}
-                    {/* 
-                        Step 1: Top Left (20% x, 0% y)
-                        Step 2: Center Right (80% x, 50% y)
-                        Step 3: Bottom Left (20% x, 100% y)
-                    */}
+                <svg className="absolute top-0 left-0 w-full h-full z-0 hidden md:block overflow-visible" preserveAspectRatio="none">
+                    {/* Glow Filter */}
+                    <defs>
+                        <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                            <feMerge>
+                                <feMergeNode in="coloredBlur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    {/* The Cable Path */}
                     <path
                         ref={pathRef}
                         d="M 250 100 C 600 100, 600 500, 900 500 C 600 500, 600 900, 250 900"
                         fill="none"
                         stroke="#00FFA3"
                         strokeWidth="4"
-                        className="opacity-50 drop-shadow-[0_0_10px_rgba(0,255,163,0.5)]"
+                        filter="url(#neon-glow)"
+                        className="opacity-80"
                         vectorEffect="non-scaling-stroke"
-                    // Note: Precise coordinates depend on responsiveness. 
-                    // Using specific viewBox or percent based might be tricky with pure SVG scaling.
-                    // Let's use a simpler vertical line for now or just generic curve?
-                    // Actually, let's use a straight line with corners for "Technical" look?
                     />
+
+                    {/* Start Dot */}
+                    <circle cx="250" cy="100" r="6" fill="#050F0D" stroke="#00FFA3" strokeWidth="3" className="animate-pulse" />
+                    {/* End Dot */}
+                    <circle cx="250" cy="900" r="6" fill="#050F0D" stroke="#00FFA3" strokeWidth="3" className="animate-pulse" />
+                    {/* Note: Precise coordinates depend on responsiveness. 
+                    Using specific viewBox or percent based might be tricky with pure SVG scaling.
+                    Let's use a simpler vertical line for now or just generic curve?
+                    Actually, let's use a straight line with corners for "Technical" look?
+                    */}
                     {/* Redrawing path to be simpler/responsive-ish:
                         M 20% 15% -> L 80% 50% -> L 20% 85% 
                         But SVG logic in absolute div needs `viewBox` matching content.

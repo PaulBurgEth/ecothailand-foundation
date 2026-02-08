@@ -107,9 +107,10 @@ export function CinematicStaircase({
                     </div>
                 ))}
 
-                {/* Floating UI Console */}
+                {/* Floating UI Layer (Z-Index 50) */}
                 <div className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center">
-                    <div className="w-full max-w-lg pointer-events-auto transition-opacity duration-500 px-4 md:px-0">
+                    <div className="w-full max-w-lg pointer-events-auto transition-opacity duration-500 px-4 md:px-0 transform scale-90 md:scale-100 origin-bottom md:origin-center">
+                        {/* Console updates based on state */}
                         <MintingConsole
                             level={activeLevel}
                             userLevelsMask={userLevelsMask}

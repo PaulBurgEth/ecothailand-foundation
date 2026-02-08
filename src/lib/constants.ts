@@ -84,7 +84,7 @@ export const LEVELS: LevelData[] = [
     priceUSD: 14,
     impact: 'Permaculture Maintenance',
     impactStats: [
-      { label: 'Entities', value: '20+' },
+      { label: 'Entities', value: 'Verified' },
       { label: 'Programs', value: '5+' }
     ],
     description:

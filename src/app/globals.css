@@ -140,7 +140,7 @@
 /* ============ Custom Scrollbar ============ */
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -148,7 +148,35 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-cyber-green/30 hover:bg-cyber-green/50;
+  @apply bg-cyber-green/20 rounded-full hover:bg-cyber-green/40 transition-colors;
+}
+
+/* ============ Scrollytelling Animations ============ */
+.stair-step {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.stair-step.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.connector-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  border-left: 2px dashed #00FFA3;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.image-mask-vertical {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
 /* ============ Selection ============ */

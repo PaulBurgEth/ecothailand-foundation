@@ -89,7 +89,7 @@ export default function HomePage() {
                     <div className="flex items-center gap-3">
                         <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             {/* EcoSynthesisX Logo */}
-                            <img src="/images/ecosynthesisx-logo.jpg" alt="EcoSynthesisX" className="w-10 h-10 rounded-full border border-cyber-green/50 shadow-[0_0_10px_#00FFA3]" />
+                            <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX" className="w-10 h-10 rounded-full border border-cyber-green/50 shadow-[0_0_10px_#00FFA3]" />
                             <span className="text-sm font-bold tracking-widest uppercase font-mono text-cyber-green">ECOSYNTHESISX</span>
                         </a>
                     </div>

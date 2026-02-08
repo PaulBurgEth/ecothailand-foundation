@@ -28,7 +28,7 @@ export function Footer() {
                         <div className="flex items-center gap-2 mt-2 opacity-80">
                             <span className="text-[10px] font-mono text-slate-400 uppercase">Powered by</span>
                             <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-1.5 hover:opacity-100 transition-opacity">
-                                <img src="/images/ecosynthesisx-logo.jpg" alt="X" className="w-4 h-4 rounded-full border border-cyber-green/30" />
+                                <img src="/images/ecosynthesisx-logo.svg" alt="X" className="w-4 h-4 rounded-full border border-cyber-green/30" />
                                 <span className="text-[10px] font-bold text-cyber-green tracking-wider uppercase">ECOSYNTHESISX</span>
                             </a>
                         </div>
@@ -50,11 +50,8 @@ export function Footer() {
                 {/* Bottom Bar: Copyright & Tagline */}
                 <div className="flex flex-col md:flex-row items-center justify-between pt-8 gap-4 text-center md:text-left">
                     <div className="flex flex-col">
-                        <p className="font-mono text-xs text-slate-500 uppercase tracking-wider mb-1">
-                            © 2025 <span className="text-slate-300">EcoThailand Impact Product</span>. All rights reserved.
-                        </p>
-                        <p className="font-mono text-[10px] text-cyber-green/60 uppercase">
-                            Designed for the Solar Future. Verifying Impact on Celo.
+                        <p className="font-mono text-xs text-cyber-green/80 uppercase tracking-[0.2em] font-bold drop-shadow-[0_0_5px_rgba(0,255,163,0.5)]">
+                            Designed for the Solar Future
                         </p>
                     </div>
 

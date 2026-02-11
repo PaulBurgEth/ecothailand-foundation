@@ -151,7 +151,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Cinematic Pinned Staircase Container */}
-                <div id="staircase" className="relative z-20">
+                <div id="staircase" className="relative z-20 bg-deep-forest">
                     <ImpactScroller
                         levels={LEVELS}
                         userLevelsMask={stats.userLevelsMask}

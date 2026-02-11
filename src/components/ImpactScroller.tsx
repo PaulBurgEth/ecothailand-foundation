@@ -46,10 +46,10 @@ export function ImpactScroller({
         });
 
         // ANIMATION: Floating Card Stack
-        // We act on the WRAPPER (#level-card-wrapper-X) to avoid conflict with the CSS floating animation on the inner element
-        levels.slice(1).forEach((level, i) => {
+        levels.forEach((level, i) => {
+            if (i === 0) return; // Level 1 is already visible
+
             const selector = `#level-card-wrapper-${level.id}`;
-            const targetIndex = i + 1; // 1, 2, 3...
 
             // Initial state: 
             gsap.set(selector, {
@@ -57,7 +57,7 @@ export function ImpactScroller({
                 scale: 0.8,
                 rotationX: 30,
                 opacity: 0,
-                zIndex: targetIndex + 2
+                zIndex: i + 2
             });
 
             // Animate IN
@@ -68,19 +68,10 @@ export function ImpactScroller({
                 opacity: 1,
                 ease: 'power4.out',
                 duration: 1,
+                // SYNC: Update console as soon as a significant portion of the card is visible
+                onStart: () => setActiveLevelIndex(i),
+                onReverseComplete: () => setActiveLevelIndex(i - 1),
             });
-        });
-
-        // Global Timeline Update for Sync
-        tl.eventCallback("onUpdate", () => {
-            // Formula: Math.floor(time + 0.5) ensures we switch index at the halfway point of the transition
-            const time = tl.time();
-            const nextIndex = Math.floor(time + 0.5);
-
-            // Clamp to valid range
-            const clampedIndex = Math.max(0, Math.min(nextIndex, levels.length - 1));
-
-            setActiveLevelIndex(prev => prev !== clampedIndex ? clampedIndex : prev);
         });
 
     }, { scope: trackRef, dependencies: [levels.length] });
@@ -133,7 +124,7 @@ export function ImpactScroller({
             </div>
 
             {/* LEFT PANEL (Overlay on Mobile, Left Panel on Desktop) */}
-            <div className="absolute bottom-0 left-0 right-0 md:relative md:w-1/2 h-auto md:h-full flex items-center justify-center p-4 md:p-6 z-50 bg-gradient-to-t from-deep-forest via-deep-forest/80 to-transparent md:bg-jungle-green/90 md:backdrop-blur-xl border-t md:border-t-0 md:border-r border-white/5 shadow-2xl md:order-1">
+            <div className="absolute bottom-0 left-0 right-0 md:relative md:w-1/2 h-auto md:h-full flex items-center justify-center p-4 md:p-6 z-50 bg-gradient-to-t from-deep-forest via-deep-forest/80 to-transparent md:bg-deep-forest md:border-r border-white/5 shadow-2xl md:order-1">
                 <div className="absolute inset-0 bg-pattern-organic opacity-10 pointer-events-none md:sticky md:top-0"></div>
 
                 <div className="w-full max-w-2xl transition-all duration-300 relative z-10 py-4 md:py-0">

@@ -63,8 +63,14 @@ export default function HomePage() {
 
                     {/* Navigation */}
                     <nav className="hidden md:flex items-center gap-8">
+                        <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
+                            Mission
+                        </button>
                         <button onClick={() => document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
                             Pipeline
+                        </button>
+                        <button onClick={() => document.getElementById('refi')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
+                            Ecosystem
                         </button>
                         <button onClick={() => document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
                             Impact
@@ -92,10 +98,22 @@ export default function HomePage() {
                     <div className="md:hidden fixed inset-0 top-[73px] z-50 bg-deep-forest/95 backdrop-blur-2xl animate-in fade-in slide-in-from-top duration-300">
                         <nav className="flex flex-col items-center justify-center h-full gap-8 p-8">
                             <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                Mission
+                            </button>
+                            <button
                                 onClick={() => { setIsMenuOpen(false); document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' }); }}
                                 className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
                             >
                                 Pipeline
+                            </button>
+                            <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('refi')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                Ecosystem
                             </button>
                             <button
                                 onClick={() => { setIsMenuOpen(false); document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' }); }}
@@ -118,17 +136,22 @@ export default function HomePage() {
             <main>
                 <MissionControlHero />
 
-                {/* SEO Friendly Mission Content */}
-                <AboutMission />
+                <div className="relative z-10">
+                    <AboutMission />
+                </div>
 
                 {/* SECTION 2: THE PIPELINE */}
-                <ProtocolPipeline />
+                <div className="relative z-10">
+                    <ProtocolPipeline />
+                </div>
 
                 {/* Technical & Ecosystem Benefits */}
-                <ReFiBenefits />
+                <div className="relative z-10">
+                    <ReFiBenefits />
+                </div>
 
                 {/* Cinematic Pinned Staircase Container */}
-                <div id="staircase">
+                <div id="staircase" className="relative z-20">
                     <ImpactScroller
                         levels={LEVELS}
                         userLevelsMask={stats.userLevelsMask}
@@ -139,11 +162,13 @@ export default function HomePage() {
                 </div>
 
                 {/* SECTION 4: THE REGENERATION BUNDLE (Standalone) */}
-                <RegenerationBundle
-                    userLevelsMask={stats.userLevelsMask}
-                    onMintSuccess={handleMintSuccess}
-                    refetch={stats.refetch}
-                />
+                <div className="relative z-10">
+                    <RegenerationBundle
+                        userLevelsMask={stats.userLevelsMask}
+                        onMintSuccess={handleMintSuccess}
+                        refetch={stats.refetch}
+                    />
+                </div>
 
                 {/* FAQ SECTION */}
                 <FAQ />

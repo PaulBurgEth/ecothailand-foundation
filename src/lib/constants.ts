@@ -1,5 +1,8 @@
 // Celo Mainnet Contract Addresses and Constants
 
+// ============ Constants ============
+export const PRODUCTION_URL = 'https://app-lac-phi-20.vercel.app' as const;
+
 // ============ Contract Addresses ============
 
 // WETH Token on Celo Mainnet
@@ -162,6 +165,28 @@ export const LEVELS: LevelData[] = [
     glowColor: '#A020F0'
   },
 ];
+
+export const BUNDLE_DATA: LevelData = {
+  id: 0,
+  name: 'The Regeneration Bundle',
+  priceUSD: 60,
+  action: 'Total Ecosystem Restoration',
+  impactAchievement: 'Comprehensive Gulf Regeneration',
+  impact: 'All 5 Impact Levels at Once',
+  impactStats: [
+    { label: 'NFTs', value: '5' },
+    { label: 'Total Price', value: '$60' }
+  ],
+  description: 'Maximize your impact by supporting all five restoration initiatives at once. This bundle includes the Mangrove Seed, Coral Architect, Coastal Guardian, Educational Guardian, and Regeneration Master NFTs in a single transaction.',
+  image: 'https://gateway.pinata.cloud/ipfs/bafybeih5poufyf2gb56wuxkxdtjxyxajpzxce7furkq2n2pqxkgxutgr6e',
+  summaryPoints: [
+    'Plant Mangroves & Deploy Coral Frames',
+    'Remove Ocean Waste & Fund Workshops',
+    'Restore Seagrass & Manage Bio Waste',
+    'Gas efficient batch minting'
+  ],
+  glowColor: '#FFD700'
+};
 
 // ============ UI Constants ============
 

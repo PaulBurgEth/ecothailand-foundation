@@ -2,6 +2,8 @@
 import { ImageResponse } from 'next/og';
 import { LEVELS } from '@/lib/constants';
 
+import { PRODUCTION_URL } from '@/lib/constants';
+
 export const runtime = 'edge';
 
 export const alt = 'EcoThailand Impact Product';
@@ -50,10 +52,10 @@ export default async function Image({ params }: { params: { id: string } }) {
                     </div>
                 </div>
 
-                {/* We need an absolute URL for the image. Assuming production URL for now. */}
+                {/* We need an absolute URL for the image. */}
                 <div style={{ width: '40%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={`https://app-lac-phi-20.vercel.app${level.image}`}
+                        src={`${PRODUCTION_URL}${level.image}`}
                         style={{
                             width: 350,
                             height: 350,

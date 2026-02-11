@@ -30,26 +30,36 @@ export function useImpactStats(): ImpactStats {
         query: { enabled: !!address },
     });
 
-    const priceReads = LEVELS.map((level) => ({
-        address: IMPACT_CONTRACT_ADDRESS,
-        abi: IMPACT_CONTRACT_ABI,
-        functionName: 'getLevelPrice' as const,
-        args: [BigInt(level.id)] as const,
-    }));
+    const priceReads = LEVELS.map((level) => {
+        // For bundle (id 0), we sum up the individual prices or just query the total if contract allows.
+        // Contract getCeloPrice is generic, so we can just use the priceUSD * 100.
+        // However, useReadContracts is used here to map 1:1.
+        // Let's just have it return 0 for bundle here as MintingConsole handles its own price fetch.
+        if (level.id === 0) return null;
+        return {
+            address: IMPACT_CONTRACT_ADDRESS,
+            abi: IMPACT_CONTRACT_ABI,
+            functionName: 'getLevelPrice' as const,
+            args: [BigInt(level.id)] as const,
+        };
+    }).filter(Boolean);
 
     const { data: pricesData, isLoading: loadingPrices, refetch: refetchPrices } = useReadContracts({
-        contracts: priceReads,
+        contracts: priceReads as any,
     });
 
-    const supplyReads = LEVELS.map((level) => ({
-        address: IMPACT_CONTRACT_ADDRESS,
-        abi: IMPACT_CONTRACT_ABI,
-        functionName: 'totalSupply' as const,
-        args: [BigInt(level.id)] as const,
-    }));
+    const supplyReads = LEVELS.map((level) => {
+        if (level.id === 0) return null;
+        return {
+            address: IMPACT_CONTRACT_ADDRESS,
+            abi: IMPACT_CONTRACT_ABI,
+            functionName: 'totalSupply' as const,
+            args: [BigInt(level.id)] as const,
+        };
+    }).filter(Boolean);
 
     const { data: supplyData, isLoading: loadingSupply, refetch: refetchSupply } = useReadContracts({
-        contracts: supplyReads,
+        contracts: supplyReads as any,
     });
 
     const celoPrices: bigint[] = pricesData
@@ -81,6 +91,12 @@ export function useImpactStats(): ImpactStats {
 
 // Helper to check if user owns a specific level
 export function ownsLevel(mask: number, levelId: number): boolean {
+    if (levelId === 0) {
+        // Bundle is "owned" if user owns ANY of the levels? 
+        // Actually, the contract reverts if they own ANY.
+        // So let's say "Impact Verified" if they own ALL FIVE.
+        return (mask & 31) === 31;
+    }
     return (mask & (1 << (levelId - 1))) !== 0;
 }
 

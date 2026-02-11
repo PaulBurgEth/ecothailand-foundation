@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation'; // Correct import for Next.js 15/App Router
-import { LEVELS } from '@/lib/constants';
+import { LEVELS, PRODUCTION_URL } from '@/lib/constants';
 import { MintingConsole } from '@/components/MintingConsole'; // We might reuse this or redirect
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,8 +24,7 @@ export async function generateMetadata(
     }
 
     const level = LEVELS[levelId - 1];
-    const productionUrl = 'https://app-lac-phi-20.vercel.app';
-    const imageUrl = `${productionUrl}${level.image}`;
+    const imageUrl = `${PRODUCTION_URL}${level.image}`;
 
     return {
         title: `Level ${level.id}: ${level.name} | EcoThailand`,
@@ -34,7 +33,7 @@ export async function generateMetadata(
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,
             images: [imageUrl],
-            url: `${productionUrl}/share/${id}`,
+            url: `${PRODUCTION_URL}/share/${id}`,
         },
         twitter: {
             card: 'summary_large_image',

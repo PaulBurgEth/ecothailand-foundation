@@ -81,7 +81,7 @@ export function ProtocolPipeline() {
 
             <div className="text-center mb-24 relative z-10">
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-4 animate-fade-in-up tracking-tighter">
-                    Stream of <span className="text-transparent bg-clip-text bg-gradient-to-r from-thai-gold to-orange-400">Regeneration</span>
+                    Regenerative <span className="text-transparent bg-clip-text bg-gradient-to-r from-thai-gold to-orange-400">Impact Pipeline</span>
                 </h2>
                 <div className="flex justify-center gap-2 items-center opacity-70">
                     <div className="w-1.5 h-1.5 rounded-full bg-thai-gold"></div>

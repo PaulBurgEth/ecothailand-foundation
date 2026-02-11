@@ -12,13 +12,18 @@ import { ImpactScroller } from '@/components/ImpactScroller';
 import { ProtocolPipeline } from '@/components/ProtocolPipeline';
 import { Footer } from '@/components/Footer';
 import { FAQ } from '@/components/FAQ';
+import { RegenerationBundle } from '@/components/RegenerationBundle';
+import { Menu, X as CloseIcon } from 'lucide-react';
 import { MissionControlHero } from '@/components/MissionControlHero';
+import { AboutMission } from '@/components/AboutMission';
+import { ReFiBenefits } from '@/components/ReFiBenefits';
 
 export default function HomePage() {
     const stats = useImpactStats();
     const [modalLevel, setModalLevel] = useState<number | null>(null);
     const { isConnected } = useAccount();
     const { writeContractAsync: mintBatchAsync } = useWriteContract();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isBatchMinting, setIsBatchMinting] = useState(false);
 
     // Scrollytelling State
@@ -49,8 +54,8 @@ export default function HomePage() {
                     <div className="flex items-center gap-3">
                         <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             {/* EcoSynthesisX Logo */}
-                            <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX" className="w-10 h-10 rounded-full border border-cyber-green/50 shadow-[0_0_10px_#00FFA3]" />
-                            <span className="text-sm font-bold tracking-widest uppercase font-mono text-white hidden md:block">
+                            <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX" className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-cyber-green/50 shadow-[0_0_10px_#00FFA3]" />
+                            <span className="text-xs md:text-sm font-bold tracking-widest uppercase font-mono text-white">
                                 ECO<span className="text-thai-gold">SYNTHESIS</span>X
                             </span>
                         </a>
@@ -69,16 +74,58 @@ export default function HomePage() {
                         </button>
                     </nav>
 
-                    <ConnectButton showBalance={false} chainStatus="icon" />
+                    <div className="flex items-center gap-4">
+                        <ConnectButton showBalance={false} chainStatus="icon" />
+
+                        {/* Burger Menu Button */}
+                        <button
+                            className="md:hidden p-2 text-white hover:text-cyber-green transition-colors"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? <CloseIcon size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="md:hidden fixed inset-0 top-[73px] z-50 bg-deep-forest/95 backdrop-blur-2xl animate-in fade-in slide-in-from-top duration-300">
+                        <nav className="flex flex-col items-center justify-center h-full gap-8 p-8">
+                            <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                Pipeline
+                            </button>
+                            <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                Impact
+                            </button>
+                            <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                FAQ
+                            </button>
+                        </nav>
+                    </div>
+                )}
             </header>
 
             {/* Main Content Area */}
             <main>
                 <MissionControlHero />
 
+                {/* SEO Friendly Mission Content */}
+                <AboutMission />
+
                 {/* SECTION 2: THE PIPELINE */}
                 <ProtocolPipeline />
+
+                {/* Technical & Ecosystem Benefits */}
+                <ReFiBenefits />
 
                 {/* Cinematic Pinned Staircase Container */}
                 <div id="staircase">
@@ -91,30 +138,18 @@ export default function HomePage() {
                     />
                 </div>
 
+                {/* SECTION 4: THE REGENERATION BUNDLE (Standalone) */}
+                <RegenerationBundle
+                    userLevelsMask={stats.userLevelsMask}
+                    onMintSuccess={handleMintSuccess}
+                    refetch={stats.refetch}
+                />
+
                 {/* FAQ SECTION */}
                 <FAQ />
             </main>
 
             <Footer />
-
-            {/* Mobile Sticky Footer */}
-            <div className="md:hidden fixed bottom-16 left-0 right-0 z-50 p-4 bg-deep-forest/90 backdrop-blur-xl border-t border-cyber-green/20 safe-area-bottom">
-                <div className="flex items-center justify-between gap-4 mb-3">
-                    <div>
-                        <p className="text-[10px] text-cyber-green font-mono uppercase">Status: Terminal Active</p>
-                        <p className="text-white font-bold leading-none">Engineering Future</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-xl font-bold text-cyber-green">PROTOCOL</p>
-                    </div>
-                </div>
-                <button
-                    onClick={() => document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="btn-sharp btn-cyber w-full py-3 text-sm font-bold"
-                >
-                    INITIALIZE IMPACT
-                </button>
-            </div>
 
             <MintModal
                 isOpen={modalLevel !== null}

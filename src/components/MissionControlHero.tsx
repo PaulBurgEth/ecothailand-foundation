@@ -105,8 +105,8 @@ export function MissionControlHero() {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tighter text-white mb-8 group cursor-default">
-                            <a href="https://ecothailand.org" target="_blank" className="block hover:text-thai-gold transition-all duration-500">EcoThailand</a>
-                            <span className="block text-slate-400 hover:text-white transition-all duration-300">Regeneration</span>
+                            <span className="block text-thai-gold">EcoThailand Impact</span>
+                            <span className="block text-slate-400 hover:text-white transition-all duration-300">Regenerative Action</span>
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-thai-gold via-orange-400 to-cyber-green">Hub</span>
                         </h1>
 

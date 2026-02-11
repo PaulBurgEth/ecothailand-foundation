@@ -99,53 +99,28 @@ export function ImpactScroller({
     return (
         // The Track: Height is determined by ScrollTrigger 'end' (via pinSpacer), 
         // so we just need a viewport-sized container here that GETS pinned.
-        <div ref={trackRef} className="relative w-full h-screen overflow-hidden flex flex-col md:flex-row bg-deep-forest">
-
-            {/* LEFT PANEL: Info & Minting Console */}
-            <div className="w-full md:w-1/2 h-[60%] md:h-full flex items-center justify-center p-4 md:p-6 relative z-50 bg-jungle-green/90 backdrop-blur-xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl overflow-y-auto no-scrollbar">
-                {/* Organic Pattern Background */}
-                <div className="absolute inset-0 bg-pattern-organic opacity-10 pointer-events-none sticky top-0"></div>
-
-                <div className="w-full max-w-2xl transition-all duration-300 relative z-10 py-8 md:py-0">
-                    <div key={activeLevel.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <MintingConsole
-                            level={activeLevel}
-                            userLevelsMask={userLevelsMask}
-                            celoPrice={activePrice}
-                            onMintSuccess={onMintSuccess}
-                            refetch={refetch}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {/* RIGHT PANEL: Floating Cards Zone */}
-            <div className="w-full md:w-1/2 h-[40%] md:h-full relative overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px]">
-
-                {/* Custom Glow Orb behind specific level */}
+        <div ref={trackRef} className="relative w-full h-screen overflow-hidden bg-deep-forest">
+            {/* RIGHT PANEL (Background Cards on Mobile, Right Panel on Desktop) */}
+            <div className="absolute inset-0 md:relative md:w-1/2 h-full overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px] z-0 md:order-2">
+                {/* Custom Glow Orb */}
                 <div
                     className="absolute w-[80%] h-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-[100px] opacity-30 transition-colors duration-1000 ease-in-out pointer-events-none z-0 mix-blend-screen"
                     style={{ backgroundColor: activeLevel.glowColor }}
                 ></div>
 
                 {levels.map((level, index) => (
-                    // WRAPPER: Controlled by GSAP for Scrollytelling Transitions
                     <div
                         key={level.id}
                         id={`level-card-wrapper-${level.id}`}
                         className="absolute w-[85%] md:w-[70%] aspect-square z-10 will-change-transform"
                         style={{
-                            // Level 1 (Index 0) is base
                             zIndex: index === 0 ? 1 : undefined,
                             transformStyle: 'preserve-3d',
                         }}
                     >
-                        {/* INNER: Controlled by CSS for Continuous Floating */}
                         <div
-                            className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.5)] border border-white/10 transition-all duration-500 bg-deep-forest/40 animate-float relative group"
-                            style={{
-                                animationDelay: `${index * 0.5}s` // Stagger animations slightly
-                            }}
+                            className="w-full h-full rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 transition-all duration-500 bg-deep-forest/40 animate-float relative group"
+                            style={{ animationDelay: `${index * 0.5}s` }}
                         >
                             <Image
                                 src={level.image}
@@ -153,16 +128,10 @@ export function ImpactScroller({
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority={index === 0}
-                                className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-110"
+                                className="object-cover opacity-90 transition-opacity duration-500 scale-105"
                             />
-
-                            {/* Card Gloss/Reflection */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-50 pointer-events-none mix-blend-overlay"></div>
-
-                            {/* Inner Shadow Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none"></div>
-
-                            {/* Level Badge on Card */}
                             <div className="absolute bottom-8 left-8 z-20">
                                 <span className="font-mono text-4xl font-black text-white drop-shadow-2xl flex items-center gap-3">
                                     <span className="text-white text-xs tracking-widest uppercase border border-white/20 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md">Level</span>
@@ -174,6 +143,22 @@ export function ImpactScroller({
                 ))}
             </div>
 
+            {/* LEFT PANEL (Overlay on Mobile, Left Panel on Desktop) */}
+            <div className="absolute bottom-0 left-0 right-0 md:relative md:w-1/2 h-auto md:h-full flex items-center justify-center p-4 md:p-6 z-50 bg-gradient-to-t from-deep-forest via-deep-forest/80 to-transparent md:bg-jungle-green/90 md:backdrop-blur-xl border-t md:border-t-0 md:border-r border-white/5 shadow-2xl md:order-1">
+                <div className="absolute inset-0 bg-pattern-organic opacity-10 pointer-events-none md:sticky md:top-0"></div>
+
+                <div className="w-full max-w-2xl transition-all duration-300 relative z-10 py-4 md:py-0">
+                    <div key={activeLevel.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <MintingConsole
+                            level={activeLevel}
+                            userLevelsMask={userLevelsMask}
+                            celoPrice={activePrice}
+                            onMintSuccess={onMintSuccess}
+                            refetch={refetch}
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

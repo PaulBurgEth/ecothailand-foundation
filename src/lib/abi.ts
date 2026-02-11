@@ -8,8 +8,8 @@ export const IMPACT_CONTRACT_ABI = [
         type: 'function',
     },
     {
-        inputs: [{ name: 'levelId', type: 'uint256' }],
-        name: 'getLevelPrice',
+        inputs: [{ name: 'usdAmount', type: 'uint256' }],
+        name: 'getCeloPrice',
         outputs: [{ name: '', type: 'uint256' }],
         stateMutability: 'view',
         type: 'function',

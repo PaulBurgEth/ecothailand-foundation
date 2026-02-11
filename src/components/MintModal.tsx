@@ -49,7 +49,16 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
 
     if (!isOpen || !level) return null;
 
-    const shareUrl = `${TWITTER_INTENT_URL}&url=https://app-lac-phi-20.vercel.app/share/${level.id}`;
+    // Construct dynamic share URL pointing to our new metadata page
+    const appUrl = typeof window !== 'undefined' ? window.location.origin : 'https://app-lac-phi-20.vercel.app';
+    const dynamicShareUrl = `${appUrl}/share/${level.id}`;
+
+    const shareText = encodeURIComponent(
+        `I just supported @EcoThailand's mission to regenerate the Thai Gulf! 🌊🌱\n\nCollect your own Impact Product and join the movement:\n\n#ReFi #ImpactProduct #Celo #EcoThailand\n${dynamicShareUrl}`
+    );
+
+    // Override the global intent with our specific text containing the link
+    const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -88,12 +97,12 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
                     {/* Level Info */}
                     <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
                         <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-900/60 to-teal-900/60 flex items-center justify-center text-3xl">
-                                {level.id === 1 && '🌱'}
-                                {level.id === 2 && '🌳'}
-                                {level.id === 3 && '🏝️'}
-                                {level.id === 4 && '📚'}
-                                {level.id === 5 && '♻️'}
+                            <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                                <img
+                                    src={level.image}
+                                    alt={level.name}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                             <div className="text-left">
                                 <p className="text-xs text-cyber-green font-mono uppercase tracking-widest">Rank Acquired</p>

@@ -1,47 +1,102 @@
+import { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation'; // Correct import for Next.js 15/App Router
 import { LEVELS } from '@/lib/constants';
-import { Metadata } from 'next';
-import { redirect } from 'next/navigation';
+import { MintingConsole } from '@/components/MintingConsole'; // We might reuse this or redirect
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
-    params: { id: string };
+    params: Promise<{ id: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const levelId = parseInt(params.id);
-    const level = LEVELS.find((l) => l.id === levelId);
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const { id } = await params;
+    const levelId = parseInt(id, 10);
 
-    if (!level) {
+    if (isNaN(levelId) || levelId < 1 || levelId > 5) {
         return {
-            title: 'EcoThailand Impact Product',
-            description: 'Regenerate the Thai Gulf, One Block at a Time.',
+            title: 'EcoThailand Impact Product'
         };
     }
 
+    const level = LEVELS[levelId - 1];
+    const productionUrl = 'https://app-lac-phi-20.vercel.app';
+    const imageUrl = `${productionUrl}${level.image}`;
+
     return {
-        title: `I am an EcoThailand ${level.name}!`,
-        description: level.description,
+        title: `Level ${level.id}: ${level.name} | EcoThailand`,
+        description: `I just minted a Level ${level.id} Impact Product! Join me in regenerating the Thai Gulf.`,
         openGraph: {
-            title: `I am an EcoThailand ${level.name}!`,
+            title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [
-                {
-                    url: `https://app-lac-phi-20.vercel.app${level.image}`,
-                    width: 800,
-                    height: 800,
-                    alt: level.name,
-                },
-            ],
+            images: [imageUrl],
+            url: `${productionUrl}/share/${id}`,
         },
         twitter: {
             card: 'summary_large_image',
-            title: `I am an EcoThailand ${level.name}!`,
+            title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [`https://app-lac-phi-20.vercel.app${level.image}`],
+            images: [imageUrl],
         },
     };
 }
 
-export default function SharePage({ params }: Props) {
-    // Redirect back to home after the metadata is served to the crawler
-    redirect('/home');
+export default async function Page({ params }: Props) {
+    // This page can just be a redirect to home with the level selected, 
+    // OR a standalone preview card that links to home.
+    // For "link leading mint page", a redirect is best OR a specific landing view.
+    // Let's make it a landing view that encourages minting same level.
+
+    const { id } = await params;
+    const levelId = parseInt(id, 10);
+
+    if (isNaN(levelId) || levelId < 1 || levelId > 5) {
+        notFound();
+    }
+
+    const level = LEVELS[levelId - 1];
+
+    return (
+        <div className="min-h-screen bg-deep-forest text-warm-sand/90 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+            {/* Background */}
+            <div className="absolute inset-0 bg-pattern-organic opacity-30 z-0"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-thai-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyber-green/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="relative z-10 max-w-md w-full glass-organic p-8 flex flex-col items-center text-center">
+                <h1 className="text-3xl font-bold font-unbounded mb-2 text-transparent bg-clip-text bg-gradient-to-r from-cyber-green to-thai-gold">
+                    EcoThailand Impact
+                </h1>
+                <p className="text-warm-sand/60 mb-8 font-light">Regenerating the Thai Gulf, one block at a time.</p>
+
+                <div className="relative w-full aspect-square mb-8 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl group">
+                    <Image
+                        src={level.image}
+                        alt={level.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-4 left-4 bg-deep-forest/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
+                        <span className="text-thai-gold font-bold text-xs tracking-widest">LVL {level.id}</span>
+                    </div>
+                </div>
+
+                <h2 className="text-3xl font-bold mb-3 text-white tracking-tight">{level.name}</h2>
+                <p className="text-sm text-warm-sand/80 mb-8 line-clamp-3 leading-relaxed">
+                    {level.description}
+                </p>
+
+                <Link
+                    href="/"
+                    className="w-full btn-organic flex items-center justify-center gap-2 group/btn"
+                >
+                    Mint Your Own
+                </Link>
+            </div>
+        </div>
+    );
 }

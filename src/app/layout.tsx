@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'Collect tokenized Real-World Impact (RWI) on Celo Blockchain to support EcoThailand\'s mission to preserve the environment, lead educational programs, and initiate social projects.',
   keywords: [
     'EcoThailand',
-    'Impact NFT',
+    'Impact Product',
     'Celo',
     'ReFi',
     'Regenerative Finance',
@@ -43,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${unbounded.variable} ${spaceMono.variable} font-sans antialiased bg-slate-950 text-white overflow-x-hidden selection:bg-cyber-green selection:text-deep-forest`}>
+      <body className={`${inter.variable} ${unbounded.variable} ${spaceMono.variable} font-sans antialiased bg-deep-forest text-warm-sand/90 overflow-x-hidden selection:bg-cyber-green selection:text-deep-forest`}>
         <div className="fixed inset-0 z-0 pointer-events-none bg-[url('/grid-pattern.svg')] opacity-[0.03] bg-repeat"></div>
         <Providers>{children}</Providers>
       </body>

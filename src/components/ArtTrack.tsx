@@ -66,7 +66,7 @@ export function ArtTrack({ levels, onActiveLevelChange }: ArtTrackProps) {
                                 {level.id.toString().padStart(2, '0')}
                             </div>
 
-                            {/* The NFT Image */}
+                            {/* The Impact Image */}
                             <img
                                 src={level.image}
                                 alt={level.name}

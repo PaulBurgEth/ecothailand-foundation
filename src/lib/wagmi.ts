@@ -4,13 +4,13 @@ import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { http } from 'wagmi';
 import { defineChain } from 'viem';
 
-// Define Celo Sepolia Testnet (Correct Chain ID: 11155111)
+// Define Celo Sepolia Testnet (L2)
 export const celoSepolia = defineChain({
-    id: 11155111,
-    name: 'Celo Sepolia',
+    id: 11142220,
+    name: 'Celo L2 Testnet',
     nativeCurrency: {
         decimals: 18,
-        name: 'CELO',
+        name: 'Celo',
         symbol: 'CELO',
     },
     rpcUrls: {
@@ -18,7 +18,6 @@ export const celoSepolia = defineChain({
             http: [
                 'https://forno.celo-sepolia.celo-testnet.org',
                 'https://celo-sepolia.drpc.org',
-                'https://sepolia.celO.org' // Added generic fallback if valid, otherwise stick to known working ones
             ]
         },
     },

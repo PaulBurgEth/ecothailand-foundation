@@ -59,6 +59,8 @@ const jsonLd = {
   }
 };
 
+import { SmoothScroll } from '@/components/SmoothScroll';
+
 export default function RootLayout({
   children,
 }: {
@@ -72,7 +74,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div className="fixed inset-0 z-0 pointer-events-none bg-[url('/grid-pattern.svg')] opacity-[0.03] bg-repeat"></div>
-        <Providers>{children}</Providers>
+        <Providers>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </Providers>
       </body>
     </html>
   );

@@ -44,7 +44,7 @@ export function ImpactScroller({
                 start: 'top top',
                 end: `+=${totalDuration * 100}%`,
                 pin: true,
-                scrub: 1.2,
+                scrub: 1,
             }
         });
 

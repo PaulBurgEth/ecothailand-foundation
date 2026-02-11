@@ -34,18 +34,24 @@ export function ImpactScroller({
     useGSAP(() => {
         if (!trackRef.current) return;
 
+        // Total duration: 1 (Start Lock) + 4 (Transitions) + 1 (End Lock) = 6
+        const totalDuration = 1 + (levels.length - 1) + 1;
+
         // Create a timeline that pins the track
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: trackRef.current,
                 start: 'top top',
-                end: '+=400%', // 5 levels = 4 transitions.
+                end: `+=${totalDuration * 100}%`,
                 pin: true,
-                scrub: 1.2, // Smoother momentum
+                scrub: 1.2,
             }
         });
 
-        // ANIMATION: Floating Card Stack
+        // 1. START LOCK: Stay on Level 1 for a bit
+        tl.to({}, { duration: 1 });
+
+        // 2. CARD TRANSITIONS
         levels.forEach((level, i) => {
             if (i === 0) return; // Level 1 is already visible
 
@@ -68,17 +74,40 @@ export function ImpactScroller({
                 opacity: 1,
                 ease: 'power4.out',
                 duration: 1,
-                // SYNC: Update console as soon as a significant portion of the card is visible
-                onStart: () => setActiveLevelIndex(i),
-                onReverseComplete: () => setActiveLevelIndex(i - 1),
             });
+        });
+
+        // 3. END LOCK: Stay on Level 5 for a bit
+        tl.to({}, { duration: 1 });
+
+        // ROBUST SYNC LOGIC
+        tl.eventCallback("onUpdate", () => {
+            const progress = tl.progress();
+            const currentTime = progress * totalDuration;
+
+            let nextIndex = 0;
+
+            // Dead zone logic
+            if (currentTime <= 1.4) {
+                // Level 1 Lock: Stay at index 0 until we are 40% into the first transition duration
+                nextIndex = 0;
+            } else if (currentTime >= totalDuration - 1.4) {
+                // Level 5 Lock: Stay at index 4 once we are 40% past the start of the last lock
+                nextIndex = levels.length - 1;
+            } else {
+                // Transition Zone: switch when the next card is ~60% in (0.6 offset)
+                // Since the first transition starts at t=1, we subtract 1.
+                const transitionTime = currentTime - 1;
+                nextIndex = Math.floor(transitionTime + 0.4);
+            }
+
+            const clampedIndex = Math.max(0, Math.min(nextIndex, levels.length - 1));
+            setActiveLevelIndex(prev => prev !== clampedIndex ? clampedIndex : prev);
         });
 
     }, { scope: trackRef, dependencies: [levels.length] });
 
     return (
-        // The Track: Height is determined by ScrollTrigger 'end' (via pinSpacer), 
-        // so we just need a viewport-sized container here that GETS pinned.
         <div ref={trackRef} className="relative w-full h-screen overflow-hidden md:flex md:flex-row bg-deep-forest">
             {/* RIGHT PANEL (Background Cards on Mobile, Right Panel on Desktop) */}
             <div className="absolute inset-0 md:relative md:w-1/2 h-full overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px] z-0 md:order-2">

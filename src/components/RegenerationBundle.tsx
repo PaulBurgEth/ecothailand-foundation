@@ -37,7 +37,7 @@ export function RegenerationBundle({
         functionName: 'getCeloPrice',
         args: [BigInt(6000)], // BUNDLE_DATA.priceUSD * 100
         query: {
-            enabled: isConnected && !isOwned && !isWrongNetwork,
+            enabled: true,
             refetchInterval: 10000,
         }
     });

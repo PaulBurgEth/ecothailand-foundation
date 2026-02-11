@@ -46,7 +46,7 @@ export function MintingConsole({
         functionName: 'getCeloPrice',
         args: [BigInt(level.priceUSD * 100)],
         query: {
-            enabled: isConnected && !isOwned && !isWrongNetwork,
+            enabled: true,
             refetchInterval: 10000, // Refresh every 10s
         }
     });

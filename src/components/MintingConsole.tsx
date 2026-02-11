@@ -63,7 +63,7 @@ export function MintingConsole({
             return;
         }
 
-        if (isOwned || !isUnlocked) return;
+        if (!isUnlocked) return;
 
         setIsMinting(true);
         setLastError(null);
@@ -126,9 +126,7 @@ export function MintingConsole({
 
             const msg = error.message || JSON.stringify(error);
 
-            if (msg.toLowerCase().includes('alreadyownslevel')) {
-                setLastError('You already own some levels in this bundle. Please mint remaining levels individually.');
-            } else if (msg.toLowerCase().includes('user rejected')) {
+            if (msg.toLowerCase().includes('user rejected')) {
                 setLastError('Transaction rejected');
             } else if (msg.toLowerCase().includes('insufficient funds')) {
                 setLastError('Insufficient CELO funds');
@@ -273,51 +271,48 @@ export function MintingConsole({
 
                 {/* Action Buttons */}
                 <div className="w-full">
-                    {isOwned ? (
+                    <button
+                        onClick={handleMint}
+                        disabled={!isConnected || (isLocked && !isWrongNetwork) || isMinting}
+                        className={`
+                            w-full py-3 md:py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5
+                            ${!isConnected || (isLocked && !isWrongNetwork)
+                                ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-white/5 shadow-none hover:translate-y-0'
+                                : isWrongNetwork
+                                    ? 'bg-orange-500 hover:bg-orange-400 text-white shadow-orange-500/20'
+                                    : isMinting
+                                        ? 'bg-gradient-to-r from-gray-600 to-gray-500 text-white cursor-wait'
+                                        : 'bg-gradient-to-r from-thai-gold to-orange-500 text-white shadow-orange-500/30'
+                            }
+                        `}
+                    >
+                        {isMinting ? (
+                            <>
+                                <Loader2 className="w-4 h-4 animate-spin" />
+                                Cultivating...
+                            </>
+                        ) : !isConnected ? (
+                            'Connect Wallet to Plant'
+                        ) : isWrongNetwork ? (
+                            'Switch Network'
+                        ) : level.id === 0 ? (
+                            'Secure The Bundle'
+                        ) : (
+                            isOwned ? 'Plant Another Seed' : 'Plant This Seed'
+                        )}
+                    </button>
+                    {isOwned && !isMinting && (
                         <button
                             onClick={() => onMintSuccess(level.id)}
-                            className="w-full py-3 md:py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 bg-cyber-green/10 text-cyber-green border border-cyber-green/30 hover:bg-cyber-green/20 hover:border-cyber-green/50 shadow-[0_0_20px_rgba(0,255,163,0.1)] hover:shadow-[0_0_30px_rgba(0,255,163,0.2)]"
+                            className="w-full mt-3 py-2 text-xs font-bold flex items-center justify-center gap-2 rounded-full bg-cyber-green/5 text-cyber-green/70 border border-cyber-green/10 hover:bg-cyber-green/10 transition-all"
                         >
                             Share Your Impact
-                            <ExternalLink className="w-4 h-4" />
+                            <ExternalLink className="w-3 h-3" />
                         </button>
-                    ) : (
-                        <div className="flex flex-col gap-3">
-                            <button
-                                onClick={handleMint}
-                                disabled={!isConnected || (isLocked && !isWrongNetwork) || isMinting}
-                                className={`
-                                    w-full py-3 md:py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5
-                                    ${!isConnected || (isLocked && !isWrongNetwork)
-                                        ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-white/5 shadow-none hover:translate-y-0'
-                                        : isWrongNetwork
-                                            ? 'bg-orange-500 hover:bg-orange-400 text-white shadow-orange-500/20'
-                                            : isMinting
-                                                ? 'bg-gradient-to-r from-gray-600 to-gray-500 text-white cursor-wait'
-                                                : 'bg-gradient-to-r from-thai-gold to-orange-500 text-white shadow-orange-500/30'
-                                    }
-                                `}
-                            >
-                                {isMinting ? (
-                                    <>
-                                        <Loader2 className="w-4 h-4 animate-spin" />
-                                        Cultivating...
-                                    </>
-                                ) : !isConnected ? (
-                                    'Connect Wallet to Plant'
-                                ) : isWrongNetwork ? (
-                                    'Switch Network'
-                                ) : level.id === 0 ? (
-                                    'Secure The Bundle'
-                                ) : (
-                                    'Plant This Seed'
-                                )}
-                            </button>
-                            {lastError && (
-                                <div className="text-[10px] text-red-300 text-center bg-red-500/10 py-2 rounded-lg border border-red-500/10">
-                                    {lastError}
-                                </div>
-                            )}
+                    )}
+                    {lastError && (
+                        <div className="mt-3 text-[10px] text-red-300 text-center bg-red-500/10 py-2 rounded-lg border border-red-500/10">
+                            {lastError}
                         </div>
                     )}
                 </div>

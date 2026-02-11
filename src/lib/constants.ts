@@ -9,7 +9,7 @@ export const PRODUCTION_URL = 'https://app-lac-phi-20.vercel.app' as const;
 export const WETH_ADDRESS = '0xD221812de1BD094f35587EE8E174B07B6167D9Af' as const;
 
 // EcoThailand Impact Contract on Celo Sepolia Testnet (Mento Oracle Supported)
-export const IMPACT_CONTRACT_ADDRESS = '0x266214141fd79D7B5631C74d9675f2651Ab63408' as const;
+export const IMPACT_CONTRACT_ADDRESS = '0xdadb71a87d3756cd08998b27c999e70175c6d6eb' as const;
 
 // Mento ChainlinkRelayer for CELO/ETH on Celo L2 Mainnet
 // Aggregates CELO/USD and ETH/USD feeds for WETH pricing

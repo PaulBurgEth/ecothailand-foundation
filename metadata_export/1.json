@@ -1,0 +1,20 @@
+{
+  "name": "Mangrove Seed",
+  "description": "Plant a mangrove tree in the Thai Gulf to restore coastal ecosystems, sequester carbon, and protect biodiversity.",
+  "image": "ipfs://bafybeih5poufyf2gb56wuxkxdtjxyxajpzxce7furkq2n2pqxkgxutgr6e",
+  "external_url": "https://ecothailand.org",
+  "attributes": [
+    {
+      "trait_type": "Impact",
+      "value": "1 Mangrove Tree Planted"
+    },
+    {
+      "trait_type": "Gardens",
+      "value": "5+"
+    },
+    {
+      "trait_type": "Workshops",
+      "value": "3+"
+    }
+  ]
+}

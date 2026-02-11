@@ -1,0 +1,13 @@
+{
+  "IpfsHash": "bafybeidxp3wd6pvnopsqbvja3q6mjofrtx7n6pzmjnghufprroaieiyuqy",
+  "PinSize": 2919,
+  "Timestamp": "2026-02-11T05:12:46.990Z",
+  "ID": "7845a4ab-37c4-456f-bdd5-77c749cd4e74",
+  "Name": "EcoThailand_Metadata_Folder",
+  "NumberOfFiles": 5,
+  "MimeType": "directory",
+  "GroupId": null,
+  "Keyvalues": {
+    "project": "EcoThailand_IP"
+  }
+}

@@ -102,11 +102,11 @@ export function ImpactScroller({
         <div ref={trackRef} className="relative w-full h-screen overflow-hidden flex flex-col md:flex-row bg-deep-forest">
 
             {/* LEFT PANEL: Info & Minting Console */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center p-6 relative z-50 bg-jungle-green/90 backdrop-blur-xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl">
+            <div className="w-full md:w-1/2 h-[60%] md:h-full flex items-center justify-center p-4 md:p-6 relative z-50 bg-jungle-green/90 backdrop-blur-xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl overflow-y-auto no-scrollbar">
                 {/* Organic Pattern Background */}
-                <div className="absolute inset-0 bg-pattern-organic opacity-10 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-pattern-organic opacity-10 pointer-events-none sticky top-0"></div>
 
-                <div className="w-full max-w-2xl transition-all duration-300 relative z-10">
+                <div className="w-full max-w-2xl transition-all duration-300 relative z-10 py-8 md:py-0">
                     <div key={activeLevel.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <MintingConsole
                             level={activeLevel}
@@ -120,7 +120,7 @@ export function ImpactScroller({
             </div>
 
             {/* RIGHT PANEL: Floating Cards Zone */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px]">
+            <div className="w-full md:w-1/2 h-[40%] md:h-full relative overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px]">
 
                 {/* Custom Glow Orb behind specific level */}
                 <div

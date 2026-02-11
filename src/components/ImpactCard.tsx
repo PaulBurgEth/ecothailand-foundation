@@ -125,6 +125,18 @@ export function ImpactCard({
                         ))}
                     </div>
 
+                    {/* NEW: Action/Impact Badges */}
+                    <div className="flex flex-col gap-2 mb-6">
+                        <div className="flex items-center gap-2 p-2 rounded-lg bg-thai-gold/5 border border-thai-gold/10">
+                            <span className="text-[10px] uppercase font-bold text-thai-gold whitespace-nowrap">Action:</span>
+                            <span className="text-xs text-white/90 truncate">{level.action}</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-lg bg-cyber-green/5 border border-cyber-green/10">
+                            <span className="text-[10px] uppercase font-bold text-cyber-green whitespace-nowrap">Impact:</span>
+                            <span className="text-xs text-white/90 truncate">{level.impactAchievement}</span>
+                        </div>
+                    </div>
+
                     <p className="text-warm-sand/80 text-sm mb-6 leading-relaxed line-clamp-3 font-light">
                         {level.description}
                     </p>

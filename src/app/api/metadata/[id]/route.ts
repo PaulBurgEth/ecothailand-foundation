@@ -37,6 +37,14 @@ export async function GET(
                 value: level.name,
             },
             {
+                trait_type: 'Action',
+                value: level.action,
+            },
+            {
+                trait_type: 'Impact Achievement',
+                value: level.impactAchievement,
+            },
+            {
                 trait_type: 'Price (USD)',
                 value: level.priceUSD,
             },

@@ -1,0 +1,20 @@
+{
+  "name": "Coastal Guardian",
+  "description": "Fund the removal of 50kg of ocean debris and ghost nets, cleaning the waters and saving marine animals from entanglement.",
+  "image": "ipfs://bafybeifqqgvcp5vmfj77dcgo453mkhqxe7c3zuaxpbmwguw7bmzsr5ewka",
+  "external_url": "https://ecothailand.org",
+  "attributes": [
+    {
+      "trait_type": "Impact",
+      "value": "50kg Ocean Waste Removed"
+    },
+    {
+      "trait_type": "Entities",
+      "value": "20+"
+    },
+    {
+      "trait_type": "Programs",
+      "value": "5+"
+    }
+  ]
+}

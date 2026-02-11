@@ -135,7 +135,7 @@ export function MintingConsole({
             : TIER_CELO_PRICES[level.id as keyof typeof TIER_CELO_PRICES];
 
     return (
-        <div className="glass-organic p-6 md:p-8 w-full mx-auto transition-all duration-500 rounded-[2rem] relative overflow-hidden group border border-white/10 hover:border-thai-gold/20 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
+        <div className="glass-organic p-4 md:p-8 w-full mx-auto transition-all duration-500 rounded-[1.5rem] md:rounded-[2rem] relative overflow-hidden group border border-white/10 hover:border-thai-gold/20 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
 
             {/* Organic Glow Background */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-thai-gold/5 rounded-full blur-[80px] pointer-events-none mix-blend-screen"></div>
@@ -153,9 +153,9 @@ export function MintingConsole({
             )}
 
             {/* Header: Level & Title */}
-            <div className="flex justify-between items-start mb-8 pb-6 border-b border-white/5 relative z-10">
+            <div className="flex justify-between items-start mb-6 md:mb-8 pb-4 md:pb-6 border-b border-white/5 relative z-10">
                 <div>
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-center gap-3 mb-2 md:mb-3">
                         <span className="text-thai-gold text-[10px] font-bold uppercase tracking-[0.2em] bg-thai-gold/10 px-3 py-1 rounded-full border border-thai-gold/20">
                             Level {level.id.toString().padStart(2, '0')}
                         </span>
@@ -165,7 +165,7 @@ export function MintingConsole({
                             </div>
                         )}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-none drop-shadow-lg">
+                    <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight leading-none drop-shadow-lg">
                         {level.name}
                     </h2>
                 </div>
@@ -183,13 +183,30 @@ export function MintingConsole({
             </div>
 
             {/* Content Grid */}
-            <div className="grid grid-cols-1 gap-8 mb-8 relative z-10">
+            <div className="grid grid-cols-1 gap-6 md:gap-8 mb-6 md:mb-8 relative z-10">
+
+                {/* NEW: Action & Achievement Highlight */}
+                <div className="flex flex-col gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-thai-gold/20 text-thai-gold mt-1">
+                            <Check className="w-4 h-4" />
+                        </div>
+                        <div>
+                            <p className="text-[10px] uppercase tracking-widest text-warm-sand/60 font-medium mb-1">
+                                Action
+                            </p>
+                            <p className="text-white text-sm font-medium leading-tight">
+                                {level.action}
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Summarized Bullet Points */}
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                     {level.summaryPoints && level.summaryPoints.length > 0 ? (
                         level.summaryPoints.map((point, i) => (
-                            <li key={i} className="flex items-start gap-4 text-warm-sand/90 text-sm leading-relaxed font-light">
+                            <li key={i} className="flex items-start gap-3 md:gap-4 text-warm-sand/90 text-xs md:text-sm leading-relaxed font-light">
                                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-thai-gold shadow-[0_0_10px_#E09F3E] shrink-0 opacity-80"></span>
                                 <span>{point}</span>
                             </li>
@@ -200,11 +217,11 @@ export function MintingConsole({
                 </ul>
 
                 {/* Stats Grid - Soft Cards */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
                     {level.impactStats.map((stat, i) => (
-                        <div key={i} className="bg-white/5 p-4 rounded-2xl border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 group">
+                        <div key={i} className="bg-white/5 p-3 md:p-4 rounded-2xl border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 group">
                             <p className="text-[9px] text-warm-sand/50 font-bold uppercase tracking-widest mb-1.5">{stat.label}</p>
-                            <p className="text-cyber-green font-mono text-xl md:text-2xl font-medium tracking-tight group-hover:scale-105 transition-transform origin-left">{stat.value}</p>
+                            <p className="text-cyber-green font-mono text-lg md:text-2xl font-medium tracking-tight group-hover:scale-105 transition-transform origin-left">{stat.value}</p>
                         </div>
                     ))}
                 </div>
@@ -215,7 +232,7 @@ export function MintingConsole({
                         href={level.proofLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center gap-2 py-3.5 border border-white/10 rounded-xl text-xs font-medium text-warm-sand/70 hover:bg-white/5 hover:text-white hover:border-white/20 transition-all group"
+                        className="w-full flex items-center justify-center gap-2 py-3 border border-white/10 rounded-xl text-xs font-medium text-warm-sand/70 hover:bg-white/5 hover:text-white hover:border-white/20 transition-all group"
                     >
                         <ExternalLink className="w-3.5 h-3.5 group-hover:text-thai-gold transition-colors" />
                         View Verified Impact Proof
@@ -224,7 +241,7 @@ export function MintingConsole({
             </div>
 
             {/* Footer Action Bar */}
-            <div className="pt-6 border-t border-white/5 relative z-10">
+            <div className="pt-4 md:pt-6 border-t border-white/5 relative z-10">
 
                 {/* Mobile Price */}
                 <div className="md:hidden flex items-center justify-between mb-4 bg-white/5 p-4 rounded-xl border border-white/5">
@@ -239,7 +256,7 @@ export function MintingConsole({
                     {isOwned ? (
                         <button
                             onClick={() => onMintSuccess(level.id)}
-                            className="w-full py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 bg-cyber-green/10 text-cyber-green border border-cyber-green/30 hover:bg-cyber-green/20 hover:border-cyber-green/50 shadow-[0_0_20px_rgba(0,255,163,0.1)] hover:shadow-[0_0_30px_rgba(0,255,163,0.2)]"
+                            className="w-full py-3 md:py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 bg-cyber-green/10 text-cyber-green border border-cyber-green/30 hover:bg-cyber-green/20 hover:border-cyber-green/50 shadow-[0_0_20px_rgba(0,255,163,0.1)] hover:shadow-[0_0_30px_rgba(0,255,163,0.2)]"
                         >
                             Share Your Impact
                             <ExternalLink className="w-4 h-4" />
@@ -250,7 +267,7 @@ export function MintingConsole({
                                 onClick={handleMint}
                                 disabled={!isConnected || (isLocked && !isWrongNetwork) || isMinting}
                                 className={`
-                                    w-full py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5
+                                    w-full py-3 md:py-4 text-sm font-bold flex items-center justify-center gap-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5
                                     ${!isConnected || (isLocked && !isWrongNetwork)
                                         ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-white/5 shadow-none hover:translate-y-0'
                                         : isWrongNetwork

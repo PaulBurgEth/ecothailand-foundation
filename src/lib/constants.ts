@@ -6,7 +6,7 @@
 export const WETH_ADDRESS = '0xD221812de1BD094f35587EE8E174B07B6167D9Af' as const;
 
 // EcoThailand Impact Contract on Celo Sepolia Testnet (Mento Oracle Supported)
-export const IMPACT_CONTRACT_ADDRESS = '0x766f39ce0369c3d79608ff41729eb688d5f80f40' as const;
+export const IMPACT_CONTRACT_ADDRESS = '0x266214141fd79D7B5631C74d9675f2651Ab63408' as const;
 
 // Mento ChainlinkRelayer for CELO/ETH on Celo L2 Mainnet
 // Aggregates CELO/USD and ETH/USD feeds for WETH pricing
@@ -39,6 +39,8 @@ export interface LevelData {
   id: number;
   name: string;
   priceUSD: number;
+  action: string;             // [NEW]
+  impactAchievement: string;  // [NEW]
   impact: string;
   impactStats: { label: string; value: string }[];
   description: string;
@@ -54,13 +56,15 @@ export const LEVELS: LevelData[] = [
     id: 1,
     name: 'Mangrove Seed',
     priceUSD: 2,
+    action: 'Community Gardening',
+    impactAchievement: '5+ gardens and 3+ workshops done',
     impact: '1 Mangrove Tree Planted',
     impactStats: [
       { label: 'Gardens', value: '5+' },
       { label: 'Workshops', value: '3+' }
     ],
     description: 'Plant a mangrove tree in the Thai Gulf to restore coastal ecosystems, sequester carbon, and protect biodiversity. Community Garden Projects identify species, geo-locate them, measure size, and calculate carbon capture.',
-    image: '/images/level-1-v2.jpg',
+    image: 'https://gateway.pinata.cloud/ipfs/bafybeih5poufyf2gb56wuxkxdtjxyxajpzxce7furkq2n2pqxkgxutgr6e',
     proofLink: 'https://youtu.be/Xnbm3vVQleI',
     video: 'https://www.youtube.com/embed/Xnbm3vVQleI?si=Xnbm3vVQleI',
     summaryPoints: [
@@ -74,13 +78,15 @@ export const LEVELS: LevelData[] = [
     id: 2,
     name: 'Coral Architect',
     priceUSD: 5,
+    action: 'Tree Preservation',
+    impactAchievement: '5 sites zoned, 42 rai surveyed, 200 trees identified',
     impact: '1 Coral Frame Deployed',
     impactStats: [
       { label: 'Sites Zoned', value: '5' },
       { label: 'Trees ID\'d', value: '200' }
     ],
     description: 'Deploy a coral nursery frame to rebuild damaged reefs, providing habitat for marine life and protecting coastlines. EcoThailand Foundation catalogs and preserves key trees on the Gulf Islands.',
-    image: '/images/level-2-v2.jpg',
+    image: 'https://gateway.pinata.cloud/ipfs/bafybeia756vgg2vu5ctjgaffioy65jorfltd7qmmi3w62mwnkds3w7drwe',
     proofLink: 'https://greenarea.dcce.go.th/in_province.php?id=67&member_id=ecothailand',
     summaryPoints: [
       'Cataloging and monitoring key island trees',
@@ -93,13 +99,15 @@ export const LEVELS: LevelData[] = [
     id: 3,
     name: 'Coastal Guardian',
     priceUSD: 10,
+    action: 'Eco Tourism Initiatives',
+    impactAchievement: '20+ entities engaged and 5+ eco programs done',
     impact: '50kg Ocean Waste Removed',
     impactStats: [
       { label: 'Entities', value: '20+' },
       { label: 'Programs', value: '5+' }
     ],
     description: 'Fund the removal of 50kg of ocean debris and ghost nets, cleaning the waters and saving marine animals from entanglement. EcoThailand supports Sustainable, Eco, Agro, and Community Tourism.',
-    image: '/images/level-3-v2.jpg',
+    image: 'https://gateway.pinata.cloud/ipfs/bafybeifqqgvcp5vmfj77dcgo453mkhqxe7c3zuaxpbmwguw7bmzsr5ewka',
     proofLink: 'https://youtu.be/a76a83dzlt0?si=1aTCKCGAM6qL1hq8',
     video: 'https://www.youtube.com/embed/a76a83dzlt0?si=1aTCKCGAM6qL1hq8',
     summaryPoints: [
@@ -113,13 +121,15 @@ export const LEVELS: LevelData[] = [
     id: 4,
     name: 'Educational Guardian',
     priceUSD: 17,
+    action: 'Educational Programs',
+    impactAchievement: '1,000+ students engaged',
     impact: '1 Student Workshop Funded',
     impactStats: [
       { label: 'Students', value: '1,000+' },
       { label: 'Events', value: '600+' }
     ],
     description: 'Sponsor an educational workshop for local students to learn about marine conservation and become future guardians of the sea. Over 600 children have participated in various events.',
-    image: '/images/level-4-v2.jpg',
+    image: 'https://gateway.pinata.cloud/ipfs/bafybeia6kfopep2ygsbw7hrbpcsvdrdl52rmusnrsnd7wg7usj3zr4qnjm',
     proofLink: 'https://youtu.be/H86hHZK6I2s?si=iM_LZRwFyQ1WWbMs',
     video: 'https://www.youtube.com/embed/H86hHZK6I2s?si=iM_LZRwFyQ1WWbMs',
     summaryPoints: [
@@ -133,13 +143,15 @@ export const LEVELS: LevelData[] = [
     id: 5,
     name: 'Regeneration Master',
     priceUSD: 26,
+    action: 'Bio Waste Management',
+    impactAchievement: '300+ entities, 2.5t CO2 saved, 5t waste/mo saved',
     impact: '1000m² Seagrass Protected',
     impactStats: [
       { label: 'Entities', value: '300+' },
       { label: 'CO2 Saved', value: '2.5t' }
     ],
     description: 'Protect and restore 1000m² of seagrass meadows, a vital carbon sink and nursery ground. Supporting Koh Phangan in reducing bio waste through eco-friendly methods.',
-    image: '/images/level-5-v2.jpg',
+    image: 'https://gateway.pinata.cloud/ipfs/bafybeiaxx6n6gt3afcglag6bq3tmlzxgjkjupfebrxagp77wyuq5cvxcxm',
     proofLink: 'https://youtu.be/ptMCsz8kTyQ?si=sUHbQvp_Jz3r5_K5',
     video: 'https://www.youtube.com/embed/ptMCsz8kTyQ?si=sUHbQvp_Jz3r5_K5',
     summaryPoints: [

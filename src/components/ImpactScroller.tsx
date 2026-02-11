@@ -99,7 +99,7 @@ export function ImpactScroller({
     return (
         // The Track: Height is determined by ScrollTrigger 'end' (via pinSpacer), 
         // so we just need a viewport-sized container here that GETS pinned.
-        <div ref={trackRef} className="relative w-full h-screen overflow-hidden bg-deep-forest">
+        <div ref={trackRef} className="relative w-full h-screen overflow-hidden md:flex md:flex-row bg-deep-forest">
             {/* RIGHT PANEL (Background Cards on Mobile, Right Panel on Desktop) */}
             <div className="absolute inset-0 md:relative md:w-1/2 h-full overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px] z-0 md:order-2">
                 {/* Custom Glow Orb */}

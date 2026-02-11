@@ -41,7 +41,7 @@ export function ImpactScroller({
                 start: 'top top',
                 end: '+=400%', // 5 levels = 4 transitions.
                 pin: true,
-                scrub: 1, // Smooth scrubbing
+                scrub: 1.2, // Smoother momentum
             }
         });
 
@@ -53,7 +53,7 @@ export function ImpactScroller({
 
             // Initial state: 
             gsap.set(selector, {
-                yPercent: 150,
+                yPercent: 200,
                 scale: 0.8,
                 rotationX: 30,
                 opacity: 0,
@@ -66,27 +66,16 @@ export function ImpactScroller({
                 scale: 1,
                 rotationX: 0,
                 opacity: 1,
-                ease: 'power3.out',
+                ease: 'power4.out',
                 duration: 1,
             });
         });
 
         // Global Timeline Update for Sync
         tl.eventCallback("onUpdate", () => {
-            // Total duration is (levels.length - 1) because we have that many transitions
-            // But actually, we just need to map progress (0-1) to the number of transitions.
-
-            // However, tl.duration() might be different depending on defaults.
-            // We added (levels.length - 1) tweens of duration 1.
-            // So total time is levels.length - 1.
-
+            // Formula: Math.floor(time + 0.5) ensures we switch index at the halfway point of the transition
             const time = tl.time();
-            // When time is 0 -> Index 0
-            // When time is > 0.8 -> Index 1
-            // When time is > 1.8 -> Index 2
-
-            // Formula: Math.floor(time + 0.2)
-            const nextIndex = Math.floor(time + 0.2);
+            const nextIndex = Math.floor(time + 0.5);
 
             // Clamp to valid range
             const clampedIndex = Math.max(0, Math.min(nextIndex, levels.length - 1));

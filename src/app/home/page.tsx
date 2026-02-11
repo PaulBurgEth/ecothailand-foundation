@@ -75,6 +75,9 @@ export default function HomePage() {
                         <button onClick={() => document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
                             Impact
                         </button>
+                        <button onClick={() => document.getElementById('bundle')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
+                            Bundle
+                        </button>
                         <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="text-xs font-mono font-bold text-slate-400 hover:text-cyber-green transition-colors uppercase tracking-wider">
                             FAQ
                         </button>
@@ -122,6 +125,12 @@ export default function HomePage() {
                                 Impact
                             </button>
                             <button
+                                onClick={() => { setIsMenuOpen(false); document.getElementById('bundle')?.scrollIntoView({ behavior: 'smooth' }); }}
+                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
+                            >
+                                Bundle
+                            </button>
+                            <button
                                 onClick={() => { setIsMenuOpen(false); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }}
                                 className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
                             >
@@ -162,7 +171,7 @@ export default function HomePage() {
                 </div>
 
                 {/* SECTION 4: THE REGENERATION BUNDLE (Standalone) */}
-                <div className="relative z-10">
+                <div id="bundle" className="relative z-10">
                     <RegenerationBundle
                         userLevelsMask={stats.userLevelsMask}
                         onMintSuccess={handleMintSuccess}

@@ -79,37 +79,36 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
                     <X className="w-5 h-5" />
                 </button>
 
-                {/* Success Icon */}
-                <div className="pt-10 pb-6 px-8 text-center">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
-                        <Check className="w-10 h-10 text-white" strokeWidth={3} />
-                    </div>
+                {/* Content */}
+                <div className="pt-12 pb-6 px-8 text-center bg-deep-forest/50">
+                    <div className="relative w-full aspect-square max-w-[280px] mx-auto mb-8 group">
+                        {/* Glow Effect */}
+                        <div
+                            className="absolute inset-0 rounded-3xl blur-[40px] opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+                            style={{ backgroundColor: level.glowColor }}
+                        />
 
-                    <h2 className="text-2xl font-black text-white mb-2 uppercase italic tracking-tighter">
-                        You are now a {level.name}! 🎉
-                    </h2>
-
-                    <p className="text-slate-300 mb-6">
-                        Thank you for purchasing an <span className="text-emerald-400 font-semibold">EcoThailand Impact Product</span>{' '}
-                        and contributing to regenerating the Earth.
-                    </p>
-
-                    {/* Level Info */}
-                    <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
-                        <div className="flex items-center gap-4">
-                            <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                                <img
-                                    src={level.image}
-                                    alt={level.name}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="text-left">
-                                <p className="text-xs text-cyber-green font-mono uppercase tracking-widest">Rank Acquired</p>
-                                <p className="text-lg font-bold text-white uppercase italic">{level.name}</p>
+                        {/* NFT Image */}
+                        <div className="relative h-full w-full rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10">
+                            <img
+                                src={level.image}
+                                alt={level.name}
+                                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                            />
+                            {/* Overlay details */}
+                            <div className="absolute top-4 right-4 bg-deep-forest/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                                <span className="text-thai-gold font-bold text-[10px] tracking-widest uppercase">LVL {level.id}</span>
                             </div>
                         </div>
                     </div>
+
+                    <h2 className="text-3xl font-black text-white mb-3 uppercase italic tracking-tighter animate-in fade-in slide-in-from-bottom duration-700">
+                        {level.name} Acquired! 🎉
+                    </h2>
+
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-[300px] mx-auto">
+                        Thank you for purchasing an <span className="text-emerald-400 font-semibold">EcoThailand Impact Product</span> and helping regenerate the Thai Gulf.
+                    </p>
                 </div>
 
                 {/* Actions */}

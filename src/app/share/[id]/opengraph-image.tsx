@@ -55,7 +55,7 @@ export default async function Image({ params }: { params: { id: string } }) {
                 {/* We need an absolute URL for the image. */}
                 <div style={{ width: '40%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={`${PRODUCTION_URL}${level.image}`}
+                        src={level.image}
                         style={{
                             width: 350,
                             height: 350,

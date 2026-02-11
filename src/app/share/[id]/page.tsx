@@ -24,7 +24,7 @@ export async function generateMetadata(
     }
 
     const level = LEVELS[levelId - 1];
-    const imageUrl = `${PRODUCTION_URL}${level.image}`;
+    const imageUrl = level.image;
 
     return {
         title: `Level ${level.id}: ${level.name} | EcoThailand`,

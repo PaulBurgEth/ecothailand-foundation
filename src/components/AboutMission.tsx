@@ -49,7 +49,7 @@ export function AboutMission() {
 
                         <div className="glass-organic p-8 border-white/5 bg-white/[0.02]">
                             <ShieldCheck className="w-10 h-10 text-thai-gold mb-4" />
-                            <h3 className="text-xl font-bold text-white mb-2 uppercase font-mono">Transparecy</h3>
+                            <h3 className="text-xl font-bold text-white mb-2 uppercase font-mono">Transparency</h3>
                             <p className="text-sm text-warm-sand/60 leading-relaxed">
                                 80% of all funds flow directly to EcoThailand Foundation's local field operations.
                             </p>

@@ -33,7 +33,7 @@ export function RegenerationHero() {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-deep-forest">
+        <section ref={containerRef} className="relative min-h-[100dvh] flex items-center pt-[calc(env(safe-area-inset-top)+6rem)] pb-[calc(env(safe-area-inset-bottom)+3rem)] overflow-hidden bg-deep-forest">
 
             {/* BACKGROUND: Organic Texture & Gradient */}
             <div className="absolute inset-0 bg-pattern-organic opacity-40 z-0"></div>

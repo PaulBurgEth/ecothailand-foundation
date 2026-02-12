@@ -30,7 +30,7 @@ export function MissionControlHero() {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-jungle-green bg-pattern-organic">
+        <section ref={containerRef} className="relative min-h-[100dvh] flex items-center pt-[calc(env(safe-area-inset-top)+8rem)] pb-[calc(env(safe-area-inset-bottom)+5rem)] overflow-hidden bg-jungle-green bg-pattern-organic">
             {/* BACKGROUND: The Living Ecosystem Centerpiece */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0 opacity-60 perspective-[1000px]">
                 <svg

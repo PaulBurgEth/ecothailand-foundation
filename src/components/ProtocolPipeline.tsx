@@ -177,7 +177,7 @@ export function ProtocolPipeline() {
                 </div>
 
                 {/* Vertical Line for Mobile - Organic Gradient */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-thai-gold via-cyber-green to-ocean-blue -translate-x-1/2 md:hidden rounded-full opacity-30"></div>
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-thai-gold via-cyber-green to-ocean-blue -translate-x-1/2 md:hidden rounded-full opacity-10"></div>
             </div>
 
         </section>

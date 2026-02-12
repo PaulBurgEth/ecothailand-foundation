@@ -17,6 +17,7 @@ import { Menu, X as CloseIcon } from 'lucide-react';
 import { MissionControlHero } from '@/components/MissionControlHero';
 import { AboutMission } from '@/components/AboutMission';
 import { ReFiBenefits } from '@/components/ReFiBenefits';
+import { MobileMenu } from '@/components/MobileMenu';
 
 export default function HomePage() {
     const stats = useImpactStats();
@@ -50,7 +51,7 @@ export default function HomePage() {
 
             {/* Header with EcoSynthesisX Branding */}
             <header className="fixed top-0 left-0 right-0 z-50 border-b border-cyber-green/10 backdrop-blur-md bg-deep-forest/80">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 md:py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             {/* EcoSynthesisX Logo */}
@@ -89,61 +90,20 @@ export default function HomePage() {
                         {/* Burger Menu Button */}
                         <button
                             className="md:hidden p-2 text-white hover:text-cyber-green transition-colors"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            onClick={() => setIsMenuOpen(true)}
                         >
-                            {isMenuOpen ? <CloseIcon size={24} /> : <Menu size={24} />}
+                            <Menu size={24} />
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
-                {isMenuOpen && (
-                    <div className="md:hidden fixed inset-0 top-[73px] z-50 bg-deep-forest/95 backdrop-blur-2xl animate-in fade-in slide-in-from-top duration-300">
-                        <nav className="flex flex-col items-center justify-center h-full gap-8 p-8">
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                Mission
-                            </button>
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                Pipeline
-                            </button>
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('refi')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                Ecosystem
-                            </button>
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('staircase')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                Impact
-                            </button>
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('bundle')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                Bundle
-                            </button>
-                            <button
-                                onClick={() => { setIsMenuOpen(false); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }}
-                                className="text-xl font-mono font-bold text-slate-200 hover:text-cyber-green transition-colors uppercase tracking-widest"
-                            >
-                                FAQ
-                            </button>
-                        </nav>
-                    </div>
-                )}
+                <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
             </header>
 
             {/* Main Content Area */}
             <main>
                 <MissionControlHero />
+
 
                 <div className="relative z-10">
                     <AboutMission />

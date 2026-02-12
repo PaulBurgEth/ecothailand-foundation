@@ -113,7 +113,7 @@ export function ImpactCard({
             {/* Content Area */}
             <div className="p-6 flex flex-col flex-grow relative bg-gradient-to-t from-black/20 to-transparent">
                 <div className="flex-grow">
-                    <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{level.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 tracking-tight">{level.name}</h3>
 
                     {/* Stats Grid - Soft Layout */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
@@ -129,11 +129,11 @@ export function ImpactCard({
                     <div className="flex flex-col gap-2 mb-6">
                         <div className="flex items-center gap-2 p-2 rounded-lg bg-thai-gold/5 border border-thai-gold/10">
                             <span className="text-[10px] uppercase font-bold text-thai-gold whitespace-nowrap">Action:</span>
-                            <span className="text-xs text-white/90 truncate">{level.action}</span>
+                            <span className="text-[10px] md:text-xs text-white/90">{level.action}</span>
                         </div>
                         <div className="flex items-center gap-2 p-2 rounded-lg bg-cyber-green/5 border border-cyber-green/10">
                             <span className="text-[10px] uppercase font-bold text-cyber-green whitespace-nowrap">Impact:</span>
-                            <span className="text-xs text-white/90 truncate">{level.impactAchievement}</span>
+                            <span className="text-[10px] md:text-xs text-white/90">{level.impactAchievement}</span>
                         </div>
                     </div>
 

@@ -108,7 +108,7 @@ export function ImpactScroller({
     }, { scope: trackRef, dependencies: [levels.length] });
 
     return (
-        <div ref={trackRef} className="relative w-full h-screen overflow-hidden md:flex md:flex-row bg-deep-forest">
+        <div ref={trackRef} className="relative w-full h-[100dvh] overflow-hidden md:flex md:flex-row bg-deep-forest">
             {/* RIGHT PANEL (Background Cards on Mobile, Right Panel on Desktop) */}
             <div className="absolute inset-0 md:relative md:w-1/2 h-full overflow-hidden bg-deep-forest flex items-center justify-center perspective-[1000px] z-0 md:order-2">
                 {/* Custom Glow Orb */}

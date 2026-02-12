@@ -27,20 +27,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         if (isOpen) {
             // Animate Menu Entrance
             gsap.fromTo(containerRef.current,
-                { opacity: 0, scale: 1.1 },
-                { opacity: 1, scale: 1, duration: 0.5, ease: "power4.out" }
+                { opacity: 0, scale: 1.05 },
+                { opacity: 1, scale: 1, duration: 0.4, ease: "power4.out" }
             );
 
             // Staggered Link Animation
             gsap.fromTo(linksRef.current,
-                { opacity: 0, x: -20 },
+                { opacity: 0, y: 20 },
                 {
                     opacity: 1,
-                    x: 0,
-                    duration: 0.6,
-                    stagger: 0.1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.08,
                     ease: "power2.out",
-                    delay: 0.2
+                    delay: 0.1
                 }
             );
 
@@ -65,7 +65,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 z-[100] flex flex-col bg-deep-forest/98 backdrop-blur-3xl md:hidden overflow-hidden"
+            className="fixed inset-0 z-[1000] flex flex-col bg-deep-forest md:hidden overflow-hidden"
         >
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -74,52 +74,56 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div className="menu-bg-circle absolute -bottom-20 right-0 w-64 h-64 bg-ocean-blue/20 rounded-full blur-[80px]" />
             </div>
 
-            {/* Header in Menu */}
-            <div className="flex items-center justify-between px-6 py-6 border-b border-white/5 relative z-10 w-full shrink-0">
-                <div className="flex items-center gap-2">
+            {/* Header in Menu with Safe Area Support */}
+            <div className="flex items-center justify-between px-6 pb-6 border-b border-white/5 relative z-10 w-full shrink-0 pt-[calc(env(safe-area-inset-top)+1.5rem)]">
+                <div className="flex items-center gap-3">
                     <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX" className="w-8 h-8 rounded-full border border-cyber-green/30" />
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase font-mono text-white/50">
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase font-mono text-white">
                         Contents
                     </span>
                 </div>
                 <button
                     onClick={onClose}
-                    className="p-2 text-white hover:text-cyber-green transition-colors bg-white/5 rounded-full"
+                    className="p-3 text-white hover:text-cyber-green transition-colors bg-white/5 hover:bg-white/10 rounded-full border border-white/10"
                 >
                     <CloseIcon size={24} />
                 </button>
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex flex-col flex-1 justify-center px-8 relative z-10 overflow-y-auto pt-8 pb-12">
-                <div className="flex flex-col gap-6 max-w-xs mx-auto w-full">
+            <nav className="flex flex-col flex-1 justify-center px-8 relative z-10 overflow-y-auto py-12 scrollbar-hide">
+                <div className="flex flex-col gap-8 max-w-xs mx-auto w-full">
                     {MENU_ITEMS.map((item, index) => (
                         <button
                             key={item.id}
                             ref={el => { linksRef.current[index] = el; }}
                             onClick={() => handleItemClick(item.id)}
-                            className="group flex items-baseline gap-6 text-left py-2 border-b border-white/5 hover:border-cyber-green/30 transition-all"
+                            className="group flex items-baseline gap-8 text-left py-1"
                         >
-                            <span className="font-mono text-xs text-thai-gold font-bold tracking-tighter opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                            <span className="font-mono text-sm text-thai-gold font-bold tracking-tighter opacity-100 group-hover:translate-x-1 transition-transform">
                                 {item.number}
                             </span>
-                            <span className="text-3xl font-black uppercase tracking-tighter text-white group-hover:text-cyber-green transition-colors">
-                                {item.name}
-                            </span>
+                            <div className="flex flex-col">
+                                <span className="text-4xl font-black uppercase tracking-tighter text-white group-hover:text-cyber-green transition-colors">
+                                    {item.name}
+                                </span>
+                                <div className="h-0.5 w-0 group-hover:w-full bg-cyber-green/50 transition-all duration-300 rounded-full mt-1" />
+                            </div>
                         </button>
                     ))}
                 </div>
 
                 {/* Footer Brand in Menu */}
-                <div className="mt-16 text-center opacity-40">
-                    <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-warm-sand">
-                        Thai Gulf Regeneration // 2026
+                <div className="mt-20 text-center opacity-30">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-warm-sand">
+                        Regen Bazaar // Thai Gulf // 2026
                     </p>
                 </div>
             </nav>
 
-            {/* Bottom Notch Spacing */}
+            {/* Bottom Safe Area Padding */}
             <div className="h-[env(safe-area-inset-bottom)] shrink-0" />
         </div>
     );
 }
+

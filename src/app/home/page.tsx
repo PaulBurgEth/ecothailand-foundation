@@ -96,8 +96,6 @@ export default function HomePage() {
                         </button>
                     </div>
                 </div>
-
-                <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
             </header>
 
             {/* Main Content Area */}
@@ -150,6 +148,8 @@ export default function HomePage() {
                 levelId={modalLevel || 1}
                 onClose={() => setModalLevel(null)}
             />
+
+            <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
         </div>
     );
 }

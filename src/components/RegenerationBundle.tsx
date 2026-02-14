@@ -8,7 +8,7 @@ import { BUNDLE_DATA, IMPACT_CONTRACT_ADDRESS, TIER_CELO_PRICES } from '@/lib/co
 import { IMPACT_CONTRACT_ABI } from '@/lib/abi';
 import { ownsLevel } from '@/hooks/useImpactStats';
 
-const TARGET_CHAIN_ID = 11142220;
+const TARGET_CHAIN_ID = 42220;
 
 interface RegenerationBundleProps {
     userLevelsMask: number;

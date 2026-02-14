@@ -18,15 +18,21 @@ const IPFS_IMAGES = {
     5: 'ipfs://bafybeiaxx6n6gt3afcglag6bq3tmlzxgjkjupfebrxagp77wyuq5cvxcxm'
 };
 
+const COMMON_ATTRIBUTES = [
+    { trait_type: 'Type', value: 'Impact Product' },
+    { trait_type: 'Entity', value: 'EcoThailand Foundation' },
+    { trait_type: 'Field', value: 'Environmental Conservation, Educational & Social programs' }
+];
+
 const LEVELS = [
     {
         id: 1,
         name: 'Mangrove Seed',
         description: 'Plant a mangrove tree in the Thai Gulf to restore coastal ecosystems, sequester carbon, and protect biodiversity.',
         attributes: [
-            { trait_type: 'Impact', value: '1 Mangrove Tree Planted' },
-            { trait_type: 'Gardens', value: '5+' },
-            { trait_type: 'Workshops', value: '3+' }
+            ...COMMON_ATTRIBUTES,
+            { trait_type: 'Action', value: 'Community Gardening' },
+            { trait_type: 'Impact Achievement', value: '5+ gardens and 3+ workshops done' }
         ]
     },
     {
@@ -34,9 +40,9 @@ const LEVELS = [
         name: 'Coral Architect',
         description: 'Deploy a coral nursery frame to rebuild damaged reefs, providing habitat for marine life and protecting coastlines.',
         attributes: [
-            { trait_type: 'Impact', value: '1 Coral Frame Deployed' },
-            { trait_type: 'Sites Zoned', value: '5' },
-            { trait_type: 'Trees ID\'d', value: '200' }
+            ...COMMON_ATTRIBUTES,
+            { trait_type: 'Action', value: 'Tree Preservation' },
+            { trait_type: 'Impact Achievement', value: '5 sites zoned, around 42 rai surveyed and around total of 200 trees identified' }
         ]
     },
     {
@@ -44,9 +50,9 @@ const LEVELS = [
         name: 'Coastal Guardian',
         description: 'Fund the removal of 50kg of ocean debris and ghost nets, cleaning the waters and saving marine animals from entanglement.',
         attributes: [
-            { trait_type: 'Impact', value: '50kg Ocean Waste Removed' },
-            { trait_type: 'Entities', value: '20+' },
-            { trait_type: 'Programs', value: '5+' }
+            ...COMMON_ATTRIBUTES,
+            { trait_type: 'Action', value: 'Eco tourism Initiatives' },
+            { trait_type: 'Impact Achievement', value: '20+ entity engaged and 5+ eco programs done' }
         ]
     },
     {
@@ -54,9 +60,9 @@ const LEVELS = [
         name: 'Educational Guardian',
         description: 'Sponsor an educational workshop for local students to learn about marine conservation and become future guardians of the sea.',
         attributes: [
-            { trait_type: 'Impact', value: '1 Student Workshop Funded' },
-            { trait_type: 'Students', value: '1,000+' },
-            { trait_type: 'Events', value: '600+' }
+            ...COMMON_ATTRIBUTES,
+            { trait_type: 'Action', value: 'Educational Programs' },
+            { trait_type: 'Impact Achievement', value: '1,000+ students engaged' }
         ]
     },
     {
@@ -64,9 +70,9 @@ const LEVELS = [
         name: 'Regeneration Master',
         description: 'Protect and restore 1000m² of seagrass meadows, a vital carbon sink and nursery ground.',
         attributes: [
-            { trait_type: 'Impact', value: '1000m² Seagrass Protected' },
-            { trait_type: 'Entities', value: '300+' },
-            { trait_type: 'CO2 Saved', value: '2.5t' }
+            ...COMMON_ATTRIBUTES,
+            { trait_type: 'Action', value: 'Bio Waste Management' },
+            { trait_type: 'Impact Achievement', value: '300+ entities participated, 2.5 tons of CO2 saved, saving over 5 tons of waste per month from incineration or landfill' }
         ]
     }
 ];

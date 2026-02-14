@@ -5,16 +5,24 @@
   "external_url": "https://ecothailand.org",
   "attributes": [
     {
-      "trait_type": "Impact",
-      "value": "1 Student Workshop Funded"
+      "trait_type": "Type",
+      "value": "Impact Product"
     },
     {
-      "trait_type": "Students",
-      "value": "1,000+"
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
     },
     {
-      "trait_type": "Events",
-      "value": "600+"
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Educational Programs"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "1,000+ students engaged"
     }
   ]
 }

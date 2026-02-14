@@ -2,30 +2,7 @@
 
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { http } from 'wagmi';
-import { defineChain } from 'viem';
-
-// Define Celo Sepolia Testnet (L2)
-export const celoSepolia = defineChain({
-    id: 11142220,
-    name: 'Celo L2 Testnet',
-    nativeCurrency: {
-        decimals: 18,
-        name: 'Celo',
-        symbol: 'CELO',
-    },
-    rpcUrls: {
-        default: {
-            http: [
-                'https://forno.celo-sepolia.celo-testnet.org',
-                'https://celo-sepolia.drpc.org',
-            ]
-        },
-    },
-    blockExplorers: {
-        default: { name: 'CeloScan', url: 'https://sepolia.celoscan.io' },
-    },
-    testnet: true,
-});
+import { celo, celoSepolia } from 'wagmi/chains';
 
 // Create Wagmi config with RainbowKit
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '33a830dd93d80f9cab063b977b816c7a';
@@ -40,8 +17,9 @@ if (!projectId && typeof window !== 'undefined') {
 export const config = getDefaultConfig({
     appName: 'EcoThailand Impact Product',
     projectId: projectId || 'demo-project-id',
-    chains: [celoSepolia],
+    chains: [celo, celoSepolia],
     transports: {
+        [celo.id]: http('https://forno.celo.org'),
         [celoSepolia.id]: http('https://forno.celo-sepolia.celo-testnet.org'),
     },
     ssr: true,

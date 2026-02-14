@@ -5,16 +5,24 @@
   "external_url": "https://ecothailand.org",
   "attributes": [
     {
-      "trait_type": "Impact",
-      "value": "1 Mangrove Tree Planted"
+      "trait_type": "Type",
+      "value": "Impact Product"
     },
     {
-      "trait_type": "Gardens",
-      "value": "5+"
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
     },
     {
-      "trait_type": "Workshops",
-      "value": "3+"
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Community Gardening"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "5+ gardens and 3+ workshops done"
     }
   ]
 }

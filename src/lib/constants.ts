@@ -8,8 +8,8 @@ export const PRODUCTION_URL = 'https://app-lac-phi-20.vercel.app' as const;
 // WETH Token on Celo Mainnet
 export const WETH_ADDRESS = '0xD221812de1BD094f35587EE8E174B07B6167D9Af' as const;
 
-// EcoThailand Impact Contract on Celo Sepolia Testnet (Mento Oracle Supported)
-export const IMPACT_CONTRACT_ADDRESS = '0xdadb71a87d3756cd08998b27c999e70175c6d6eb' as const;
+// EcoThailand Impact Contract on Celo Mainnet (Mento Oracle Supported)
+export const IMPACT_CONTRACT_ADDRESS = '0xa5dB5eC4d2F1435f7cb3504414981347E28340b4' as const;
 
 // Mento ChainlinkRelayer for CELO/ETH on Celo L2 Mainnet
 // Aggregates CELO/USD and ETH/USD feeds for WETH pricing
@@ -17,13 +17,13 @@ export const IMPACT_CONTRACT_ADDRESS = '0xdadb71a87d3756cd08998b27c999e70175c6d6
 export const CHAINLINK_RELAYER = '0xd5bAF8D2072B2dB54Bed9c4763D591a44C408A98' as const;
 
 // Hardcoded CELO prices for fallback (Safety Net)
-// Note: These should roughly align with $2, $5, $10, $17, $26 assuming ~$0.60 CELO
+// Note: These should roughly align with $2, $5, $10, $17, $26 assuming ~$0.086 CELO
 export const TIER_CELO_PRICES = {
-  1: 3.5,
-  2: 8.5,
-  3: 17,
-  4: 29,
-  5: 44,
+  1: 23,
+  2: 58,
+  3: 115,
+  4: 195,
+  5: 300,
 } as const;
 
 // cUSD for fee currency support

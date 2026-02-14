@@ -5,16 +5,24 @@
   "external_url": "https://ecothailand.org",
   "attributes": [
     {
-      "trait_type": "Impact",
-      "value": "50kg Ocean Waste Removed"
+      "trait_type": "Type",
+      "value": "Impact Product"
     },
     {
-      "trait_type": "Entities",
-      "value": "20+"
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
     },
     {
-      "trait_type": "Programs",
-      "value": "5+"
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Eco tourism Initiatives"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "20+ entity engaged and 5+ eco programs done"
     }
   ]
 }

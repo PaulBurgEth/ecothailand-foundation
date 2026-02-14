@@ -5,16 +5,24 @@
   "external_url": "https://ecothailand.org",
   "attributes": [
     {
-      "trait_type": "Impact",
-      "value": "1 Coral Frame Deployed"
+      "trait_type": "Type",
+      "value": "Impact Product"
     },
     {
-      "trait_type": "Sites Zoned",
-      "value": "5"
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
     },
     {
-      "trait_type": "Trees ID'd",
-      "value": "200"
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Tree Preservation"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "5 sites zoned, around 42 rai surveyed and around total of 200 trees identified"
     }
   ]
 }

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | EcoThailand Impact'
   },
   description:
-    'Support environmental restoration in the Thai Gulf with tokenized impact products on the Celo blockchain. Join EcoThailand in planting mangroves and deploying coral frames through verified regenerative finance (ReFi).',
+    'Support environmental restoration in the Thai Gulf with tokenized impact products on Celo. Join EcoThailand in planting mangroves and coral.',
   keywords: [
     'environmental impact tokens Thailand',
     'ReFi impact marketplace',
@@ -34,12 +34,21 @@ export const metadata: Metadata = {
     siteName: 'EcoThailand Impact',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'EcoThailand Impact Product | Regenerate the Thai Gulf',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'EcoThailand Impact | Restore Mangroves & Coral',
     description: 'Support environmental restoration in the Thai Gulf with tokenized impact products on Celo.',
     creator: '@EcoThailand',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/',

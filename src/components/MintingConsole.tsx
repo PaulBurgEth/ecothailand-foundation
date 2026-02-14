@@ -8,8 +8,8 @@ import { LevelData, IMPACT_CONTRACT_ADDRESS, TIER_CELO_PRICES } from '@/lib/cons
 import { IMPACT_CONTRACT_ABI } from '@/lib/abi';
 import { ownsLevel, isLevelUnlocked } from '@/hooks/useImpactStats';
 
-// Celo Sepolia Chain ID
-const TARGET_CHAIN_ID = 11142220;
+// Celo Mainnet Chain ID
+const TARGET_CHAIN_ID = 42220;
 
 interface MintingConsoleProps {
     level: LevelData;
@@ -173,7 +173,7 @@ export function MintingConsole({
                     <AlertTriangle className="w-5 h-5 text-orange-400" />
                     <div>
                         <p className="text-xs font-bold text-orange-400 uppercase tracking-wide">Wrong Network</p>
-                        <p className="text-[10px] text-orange-200/80">Switch to Celo Sepolia to plant seeds.</p>
+                        <p className="text-[10px] text-orange-200/80">Switch to Celo Mainnet to plant seeds.</p>
                     </div>
                 </div>
             )}

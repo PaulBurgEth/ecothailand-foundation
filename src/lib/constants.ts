@@ -1,7 +1,7 @@
 // Celo Mainnet Contract Addresses and Constants
 
 // ============ Constants ============
-export const PRODUCTION_URL = 'https://app-lac-phi-20.vercel.app' as const;
+export const PRODUCTION_URL = 'https://ecothailand.regenbazaar.com' as const;
 
 // ============ Contract Addresses ============
 
@@ -9,7 +9,7 @@ export const PRODUCTION_URL = 'https://app-lac-phi-20.vercel.app' as const;
 export const WETH_ADDRESS = '0xD221812de1BD094f35587EE8E174B07B6167D9Af' as const;
 
 // EcoThailand Impact Contract on Celo Mainnet (Mento Oracle Supported)
-export const IMPACT_CONTRACT_ADDRESS = '0xa5dB5eC4d2F1435f7cb3504414981347E28340b4' as const;
+export const IMPACT_CONTRACT_ADDRESS = '0x95cD0E3bDbC670e057416D65C89B584a9a24d95d' as const;
 
 // Mento ChainlinkRelayer for CELO/ETH on Celo L2 Mainnet
 // Aggregates CELO/USD and ETH/USD feeds for WETH pricing
@@ -67,7 +67,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Workshops', value: '3+' }
     ],
     description: 'Plant a mangrove tree in the Thai Gulf to restore coastal ecosystems, sequester carbon, and protect biodiversity. Community Garden Projects identify species, geo-locate them, measure size, and calculate carbon capture.',
-    image: 'https://gateway.pinata.cloud/ipfs/bafybeih5poufyf2gb56wuxkxdtjxyxajpzxce7furkq2n2pqxkgxutgr6e',
+    image: '/images/level-1.jpg',
     proofLink: 'https://youtu.be/Xnbm3vVQleI',
     video: 'https://www.youtube.com/embed/Xnbm3vVQleI?si=Xnbm3vVQleI',
     summaryPoints: [
@@ -89,7 +89,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Trees ID\'d', value: '200' }
     ],
     description: 'Deploy a coral nursery frame to rebuild damaged reefs, providing habitat for marine life and protecting coastlines. EcoThailand Foundation catalogs and preserves key trees on the Gulf Islands.',
-    image: 'https://gateway.pinata.cloud/ipfs/bafybeia756vgg2vu5ctjgaffioy65jorfltd7qmmi3w62mwnkds3w7drwe',
+    image: '/images/level-2.jpg',
     proofLink: 'https://greenarea.dcce.go.th/in_province.php?id=67&member_id=ecothailand',
     summaryPoints: [
       'Cataloging and monitoring key island trees',
@@ -110,7 +110,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Programs', value: '5+' }
     ],
     description: 'Fund the removal of 50kg of ocean debris and ghost nets, cleaning the waters and saving marine animals from entanglement. EcoThailand supports Sustainable, Eco, Agro, and Community Tourism.',
-    image: 'https://gateway.pinata.cloud/ipfs/bafybeifqqgvcp5vmfj77dcgo453mkhqxe7c3zuaxpbmwguw7bmzsr5ewka',
+    image: '/images/level-3.jpg',
     proofLink: 'https://youtu.be/a76a83dzlt0?si=1aTCKCGAM6qL1hq8',
     video: 'https://www.youtube.com/embed/a76a83dzlt0?si=1aTCKCGAM6qL1hq8',
     summaryPoints: [
@@ -132,7 +132,7 @@ export const LEVELS: LevelData[] = [
       { label: 'Events', value: '600+' }
     ],
     description: 'Sponsor an educational workshop for local students to learn about marine conservation and become future guardians of the sea. Over 600 children have participated in various events.',
-    image: 'https://gateway.pinata.cloud/ipfs/bafybeia6kfopep2ygsbw7hrbpcsvdrdl52rmusnrsnd7wg7usj3zr4qnjm',
+    image: '/images/level-4.jpg',
     proofLink: 'https://youtu.be/H86hHZK6I2s?si=iM_LZRwFyQ1WWbMs',
     video: 'https://www.youtube.com/embed/H86hHZK6I2s?si=iM_LZRwFyQ1WWbMs',
     summaryPoints: [
@@ -154,7 +154,7 @@ export const LEVELS: LevelData[] = [
       { label: 'CO2 Saved', value: '2.5t' }
     ],
     description: 'Protect and restore 1000m² of seagrass meadows, a vital carbon sink and nursery ground. Supporting Koh Phangan in reducing bio waste through eco-friendly methods.',
-    image: 'https://gateway.pinata.cloud/ipfs/bafybeiaxx6n6gt3afcglag6bq3tmlzxgjkjupfebrxagp77wyuq5cvxcxm',
+    image: '/images/level-5.jpg',
     proofLink: 'https://youtu.be/ptMCsz8kTyQ?si=sUHbQvp_Jz3r5_K5',
     video: 'https://www.youtube.com/embed/ptMCsz8kTyQ?si=sUHbQvp_Jz3r5_K5',
     summaryPoints: [
@@ -178,7 +178,7 @@ export const BUNDLE_DATA: LevelData = {
     { label: 'Total Price', value: '$60' }
   ],
   description: 'Maximize your impact by supporting all five restoration initiatives at once. This bundle includes the Mangrove Seed, Coral Architect, Coastal Guardian, Educational Guardian, and Regeneration Master NFTs in a single transaction.',
-  image: 'https://gateway.pinata.cloud/ipfs/bafybeih5poufyf2gb56wuxkxdtjxyxajpzxce7furkq2n2pqxkgxutgr6e',
+  image: '/images/level-1.jpg',
   summaryPoints: [
     'Plant Mangroves & Deploy Coral Frames',
     'Remove Ocean Waste & Fund Workshops',

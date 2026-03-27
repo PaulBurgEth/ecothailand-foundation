@@ -105,6 +105,7 @@ export function ImpactCard({
                     <img
                         src={level.image}
                         alt={level.name}
+                        loading="lazy"
                         className="h-full w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500 filter saturate-[1.1]"
                     />
                 </div>

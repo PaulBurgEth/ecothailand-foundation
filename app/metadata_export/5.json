@@ -1,0 +1,28 @@
+{
+  "name": "Regeneration Master",
+  "description": "Protect and restore 1000m² of seagrass meadows, a vital carbon sink and nursery ground.",
+  "image": "ipfs://bafybeiaxx6n6gt3afcglag6bq3tmlzxgjkjupfebrxagp77wyuq5cvxcxm",
+  "external_url": "https://ecothailand.org",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Impact Product"
+    },
+    {
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
+    },
+    {
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Bio Waste Management"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "300+ entities participated, 2.5 tons of CO2 saved, saving over 5 tons of waste per month from incineration or landfill"
+    }
+  ]
+}

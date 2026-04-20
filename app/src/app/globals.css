@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: var(--font-inter);
+  --font-unbounded: var(--font-unbounded);
+  --font-mono: var(--font-mono);
+  /* Organic Palette */
+  --color-cyber-green: #00FFA3;
+  /* Keep as "Energy" accent */
+  --color-thai-gold: #E09F3E;
+  /* Warm Terracotta/Gold */
+  --color-deep-forest: #022c22;
+  /* Deep Jungle Green */
+  --color-jungle-green: #134e4a;
+  /* Lighter Jungle */
+  --color-warm-sand: #F5E6CA;
+  /* Organic Background/Text */
+  --color-ocean-blue: #00D1FF;
+  /* Water Elements */
+  --color-clay: #9C6644;
+  /* Earth Elements */
+}
+
+/* ============ Typography ============ */
+
+@layer base {
+  body {
+    @apply font-inter bg-deep-forest text-warm-sand/90 antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-unbounded tracking-tight text-white;
+  }
+}
+
+/* ============ Organic Patterns ============ */
+
+.bg-pattern-organic {
+  background-color: var(--color-deep-forest);
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(224, 159, 62, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(0, 255, 163, 0.1) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23134e4a' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Soft Glassmorphism */
+.glass-organic {
+  @apply bg-deep-forest/40 backdrop-blur-md border border-white/5 shadow-xl;
+  border-radius: 1.5rem;
+  /* Soft rounded corners */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.btn-organic {
+  @apply relative overflow-hidden transition-all duration-300 font-medium tracking-wide text-sm px-6 py-3 rounded-full;
+  background: linear-gradient(135deg, var(--color-thai-gold), #D97706);
+  color: white;
+  box-shadow: 0 4px 15px rgba(224, 159, 62, 0.3);
+}
+
+.btn-organic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(224, 159, 62, 0.4);
+}
+
+.cyber-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 163, 0.3);
+}
+
+.cyber-glow-hover {
+  transition: all 0.3s ease;
+}
+
+.cyber-glow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 163, 0.3);
+  border-color: #00FFA3;
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease-out;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 163, 0.3);
+  border-color: #00FFA3;
+}
+
+.btn-active-press:active {
+  @apply scale-[0.98];
+}
+
+.shimmer-effect {
+  @apply relative overflow-hidden;
+}
+
+.shimmer-effect::after {
+  @apply absolute top-0 left-0 w-full h-full content-[''] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite];
+}
+
+/* ============ Custom Scrollbar ============ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-deep-forest;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cyber-green/20 rounded-full hover:bg-cyber-green/40 transition-colors;
+}
+
+/* ============ Scrollytelling Animations ============ */
+.stair-step {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.stair-step.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.connector-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  border-left: 2px dashed #00FFA3;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.image-mask-vertical {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.mask-stack-blend {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.sticky-stack-container {
+  position: relative;
+  width: 100%;
+}
+
+.sticky-level {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============ Selection ============ */
+
+::selection {
+  @apply bg-cyber-green text-deep-forest;
+}
+
+/* ============ Status Tags ============ */
+
+.tag-mono {
+  @apply font-mono text-[10px] uppercase border px-2 py-0.5 tracking-tighter;
+}
+
+@layer utilities {
+  .glitch-text {
+    position: relative;
+    animation: glitchHorizontal 1s linear infinite;
+  }
+
+  @keyframes glitchHorizontal {
+
+    2%,
+    64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+      transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+      transform: translate(0, 0) skew(5deg);
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(-15px);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

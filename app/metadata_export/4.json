@@ -1,0 +1,28 @@
+{
+  "name": "Educational Guardian",
+  "description": "Sponsor an educational workshop for local students to learn about marine conservation and become future guardians of the sea.",
+  "image": "ipfs://bafybeia6kfopep2ygsbw7hrbpcsvdrdl52rmusnrsnd7wg7usj3zr4qnjm",
+  "external_url": "https://ecothailand.org",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Impact Product"
+    },
+    {
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
+    },
+    {
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Educational Programs"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "1,000+ students engaged"
+    }
+  ]
+}

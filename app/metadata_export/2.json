@@ -1,0 +1,28 @@
+{
+  "name": "Coral Architect",
+  "description": "Deploy a coral nursery frame to rebuild damaged reefs, providing habitat for marine life and protecting coastlines.",
+  "image": "ipfs://bafybeia756vgg2vu5ctjgaffioy65jorfltd7qmmi3w62mwnkds3w7drwe",
+  "external_url": "https://ecothailand.org",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Impact Product"
+    },
+    {
+      "trait_type": "Entity",
+      "value": "EcoThailand Foundation"
+    },
+    {
+      "trait_type": "Field",
+      "value": "Environmental Conservation, Educational & Social programs"
+    },
+    {
+      "trait_type": "Action",
+      "value": "Tree Preservation"
+    },
+    {
+      "trait_type": "Impact Achievement",
+      "value": "5 sites zoned, around 42 rai surveyed and around total of 200 trees identified"
+    }
+  ]
+}

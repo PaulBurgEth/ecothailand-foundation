@@ -1,4 +1,4 @@
-# EcoThailand Foundation — Impact Product
+# EcoThailand Foundation — tRWI Collection
 
 **Regenerative action hub for the Thai Gulf.** Restoring mangroves, coral, soil, and communities — funded through tokenized impact on Celo.
 
@@ -6,9 +6,9 @@
 
 ## What this is
 
-Impact product framework built for [EcoThailand Foundation](https://ecothailand.org) — tokenizing volunteer contributions and environmental education into fundable, verifiable on-chain capital.
+tRWI framework built for [EcoThailand Foundation](https://ecothailand.org) — tokenizing volunteer contributions and environmental education into fundable, verifiable on-chain capital.
 
-Every purchase of an Impact Product funds tangible environmental change in the Thai Gulf:
+Every purchase of a tRWI unit (tokenized real-world impact) funds tangible environmental change in the Thai Gulf:
 - Mangrove restoration
 - Coral nursery frames
 - Sea grass preservation
@@ -19,7 +19,7 @@ Every purchase of an Impact Product funds tangible environmental change in the T
 
 ## Impact Collection
 
-Five tiered Impact Product NFTs on Celo:
+Five tiered tRWI NFTs on Celo:
 1. **Mangrove Seed** (~$2) — community gardens, composting
 2. **Coral Architect** — coral nursery frames
 3. **Coastal Guardian** — mangrove + beach restoration

@@ -90,8 +90,8 @@ export default function TermsPage() {
                         <h2 className="text-xl font-bold text-white mb-3">6. Intellectual property</h2>
                         <p>
                             Site content, branding, and imagery are owned by the EcoThailand Foundation or used with
-                            permission, and may not be reproduced without consent, except as needed to display Impact
-                            Products you hold.
+                            permission, and may not be reproduced without consent, except as needed to display tRWI
+                            tokens you hold.
                         </p>
                     </section>
 

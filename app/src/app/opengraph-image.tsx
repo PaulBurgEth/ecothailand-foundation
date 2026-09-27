@@ -4,7 +4,7 @@ import { PRODUCTION_URL } from '@/lib/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'EcoThailand Impact Product | Regenerate the Thai Gulf';
+export const alt = 'EcoThailand tRWI Pilot Collection | Regenerate the Thai Gulf';
 export const size = {
     width: 1200,
     height: 630,
@@ -62,7 +62,7 @@ export default async function Image() {
                     </div>
                     <div style={{ fontSize: 72, fontWeight: 900, lineHeight: 1.1, marginBottom: 24 }}>Regenerate the Thai Gulf</div>
                     <div style={{ fontSize: 32, opacity: 0.8, marginBottom: 48, lineHeight: 1.4 }}>
-                        Collect tokenized Real-World Impact (RWI) to support environmental missions on Celo.
+                        Fund Tokenized Real-World Impact (tRWI) to support environmental missions on Celo.
                     </div>
                     <div style={{
                         background: 'linear-gradient(90deg, #00FFA3, #D4AF37)',

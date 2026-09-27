@@ -6,7 +6,7 @@ import { PRODUCTION_URL } from '@/lib/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'EcoThailand Impact Product';
+export const alt = 'EcoThailand tRWI (Tokenized Real-World Impact)';
 export const size = {
     width: 1200,
     height: 630,
@@ -14,7 +14,7 @@ export const size = {
 
 export const contentType = 'image/png';
 
-export default async function Image({ params }: { params: { id: string } }) {
+export default async function Image({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const levelId = parseInt(id, 10);
     // Default to level 1 for safety
@@ -38,7 +38,7 @@ export default async function Image({ params }: { params: { id: string } }) {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 60, width: '60%' }}>
                     <div style={{ fontSize: 24, letterSpacing: '0.2em', color: '#00FFA3', marginBottom: 20 }}>ECOTHAILAND IP</div>
                     <div style={{ fontSize: 60, fontWeight: 900, lineHeight: 1.1, marginBottom: 20 }}>{level.name}</div>
-                    <div style={{ fontSize: 32, opacity: 0.8, marginBottom: 40 }}>{level.description.slice(0, 100)}...</div>
+                    <div style={{ fontSize: 32, opacity: 0.8, marginBottom: 40 }}>{`${level.description.slice(0, 100)}...`}</div>
                     <div style={{
                         background: 'rgba(255, 159, 28, 0.2)',
                         border: '1px solid #FF9F1C',
@@ -52,10 +52,10 @@ export default async function Image({ params }: { params: { id: string } }) {
                     </div>
                 </div>
 
-                {/* We need an absolute URL for the image. */}
+                {/* Satori requires an absolute URL for the image. */}
                 <div style={{ width: '40%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={level.image}
+                        src={`${PRODUCTION_URL}${level.image}`}
                         style={{
                             width: 350,
                             height: 350,

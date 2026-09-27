@@ -19,27 +19,26 @@ export async function generateMetadata(
 
     if (isNaN(levelId) || levelId < 1 || levelId > 5) {
         return {
-            title: 'EcoThailand Impact Product'
+            title: 'EcoThailand tRWI (Tokenized Real-World Impact)'
         };
     }
 
     const level = LEVELS[levelId - 1];
-    const imageUrl = level.image;
 
+    // Open Graph / Twitter images intentionally omitted here so Next.js uses the
+    // branded card from share/[id]/opengraph-image.tsx (1200x630) as the preview.
     return {
         title: `Level ${level.id}: ${level.name} | EcoThailand`,
-        description: `I just minted a Level ${level.id} Impact Product! Join me in regenerating the Thai Gulf.`,
+        description: `I just funded a Level ${level.id} tRWI (Tokenized Real-World Impact)! Join me in regenerating the Thai Gulf.`,
         openGraph: {
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [imageUrl],
             url: `${PRODUCTION_URL}/share/${id}`,
         },
         twitter: {
             card: 'summary_large_image',
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [imageUrl],
         },
     };
 }

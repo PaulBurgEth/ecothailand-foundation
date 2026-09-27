@@ -52,7 +52,7 @@ export function ReFiBenefits() {
                         </div>
                         <h3 className="text-xl font-bold text-white mb-3 font-unbounded">Regen Bazaar</h3>
                         <p className="text-sm text-warm-sand/60 leading-relaxed">
-                            Integrated with the Regen Bazaar ecosystem, allowing impact products to be part of a global ReFi movement.
+                            Integrated with the Regen Bazaar ecosystem, allowing tRWI tokens to be part of a global ReFi movement.
                         </p>
                     </div>
                 </div>

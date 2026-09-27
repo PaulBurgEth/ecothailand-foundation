@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Leaf, Facebook } from 'lucide-react';
 
 export function Footer() {
@@ -31,7 +32,7 @@ export function Footer() {
                         <div className="flex items-center gap-2 mt-4 opacity-70 hover:opacity-100 transition-opacity">
                             <span className="text-[10px] font-mono text-slate-400 uppercase">Powered by</span>
                             <a href="https://ecosynthesisx.com" target="_blank" className="flex items-center gap-1.5">
-                                <img src="/images/ecosynthesisx-logo.svg" alt="X" className="w-5 h-5 rounded-full border border-thai-gold/30 grayscale hover:grayscale-0 transition-all" />
+                                <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX logo" className="w-5 h-5 rounded-full border border-thai-gold/30 grayscale hover:grayscale-0 transition-all" />
                                 <span className="text-[10px] font-bold text-slate-300 tracking-wider uppercase hover:text-white">ECOSYNTHESISX</span>
                             </a>
                         </div>
@@ -39,10 +40,10 @@ export function Footer() {
 
                     {/* Social Links */}
                     <div className="flex items-center gap-6 mt-6">
-                        <a href="https://www.facebook.com/EcoThailandFoundation" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-full bg-deep-forest/50 border border-white/5 hover:border-thai-gold hover:bg-thai-gold hover:text-deep-forest transition-all duration-300 group">
+                        <a href="https://www.facebook.com/EcoThailandFoundation" target="_blank" rel="noopener noreferrer" aria-label="EcoThailand on Facebook" className="w-12 h-12 flex items-center justify-center rounded-full bg-deep-forest/50 border border-white/5 hover:border-thai-gold hover:bg-thai-gold hover:text-deep-forest transition-all duration-300 group">
                             <Facebook className="w-5 h-5 text-slate-400 group-hover:text-deep-forest transition-colors" />
                         </a>
-                        <a href="https://ecothailand.org" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-full bg-deep-forest/50 border border-white/5 hover:border-cyber-green hover:bg-cyber-green hover:text-deep-forest transition-all duration-300 group">
+                        <a href="https://ecothailand.org" target="_blank" rel="noopener noreferrer" aria-label="EcoThailand Foundation website" className="w-12 h-12 flex items-center justify-center rounded-full bg-deep-forest/50 border border-white/5 hover:border-cyber-green hover:bg-cyber-green hover:text-deep-forest transition-all duration-300 group">
                             <Leaf className="w-5 h-5 text-slate-400 group-hover:text-deep-forest transition-colors" />
                         </a>
                     </div>
@@ -50,9 +51,21 @@ export function Footer() {
 
                 {/* Bottom Bar: Copyright & Tagline */}
                 <div className="flex flex-col md:flex-row items-center justify-between pt-8 gap-6 text-center md:text-left border-t border-white/5">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-3">
                         <p className="font-mono text-xs text-slate-500 uppercase tracking-widest">
                             &copy; {new Date().getFullYear()} EcoThailand Foundation
+                        </p>
+                        <div className="flex items-center justify-center md:justify-start gap-4">
+                            <Link href="/privacy" className="font-mono text-[10px] text-slate-400 uppercase tracking-widest hover:text-cyber-green transition-colors">
+                                Privacy
+                            </Link>
+                            <span className="text-slate-600">·</span>
+                            <Link href="/terms" className="font-mono text-[10px] text-slate-400 uppercase tracking-widest hover:text-cyber-green transition-colors">
+                                Terms
+                            </Link>
+                        </div>
+                        <p className="font-mono text-[10px] text-slate-500/80 leading-relaxed max-w-md normal-case tracking-normal">
+                            tRWI (Tokenized Real-World Impact) tokens represent real-world environmental action. They are not investments or financial advice. On-chain transactions are irreversible.
                         </p>
                     </div>
 

@@ -54,7 +54,7 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
     const dynamicShareUrl = `${appUrl}/share/${level.id}`;
 
     const shareText = encodeURIComponent(
-        `I just supported @EcoThailand's mission to regenerate the Thai Gulf! 🌊🌱\n\nCollect your own Impact Product and join the movement:\n\n#ReFi #ImpactProduct #Celo #EcoThailand\n${dynamicShareUrl}`
+        `I just supported @EcoThailand's mission to regenerate the Thai Gulf! 🌊🌱\n\nFund your own tRWI (Tokenized Real-World Impact) and join the movement:\n\n#ReFi #tRWI #Celo #EcoThailand\n${dynamicShareUrl}`
     );
 
     // Override the global intent with our specific text containing the link
@@ -107,7 +107,7 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
                     </h2>
 
                     <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-[300px] mx-auto">
-                        Thank you for purchasing an <span className="text-emerald-400 font-semibold">EcoThailand Impact Product</span> and helping regenerate the Thai Gulf.
+                        Thank you for funding an <span className="text-emerald-400 font-semibold">EcoThailand tRWI</span> and helping regenerate the Thai Gulf.
                     </p>
                 </div>
 

@@ -56,4 +56,4 @@ Solidity · Foundry · Hardhat · Next.js · TypeScript · Celo blockchain.
 
 ## Part of
 
-[EcoSynthesisX DAO](https://www.ecosynthesisx.com/) ecosystem · [Regen Bazaar](https://regenbazaar.com) network · [ReFi Phangan](https://x.com/ReFiPhangan) local node.
+Built by [EcoSynthesisX](https://www.ecosynthesisx.com/) · [Regen Bazaar](https://regenbazaar.com) network · [ReFi Phangan](https://x.com/ReFiPhangan) local node.

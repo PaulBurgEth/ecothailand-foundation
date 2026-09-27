@@ -57,7 +57,7 @@ export function AboutMission() {
 
                         <div className="glass-organic p-8 border-white/5 bg-white/[0.02]">
                             <div className="flex items-center gap-2 mb-4">
-                                <img src="/images/ecosynthesisx-logo.svg" alt="Celo" className="w-8 h-8 rounded-full" />
+                                <img src="/images/ecosynthesisx-logo.svg" alt="EcoSynthesisX logo" className="w-8 h-8 rounded-full" />
                                 <span className="text-xs font-bold text-cyber-green font-mono uppercase">Powered by Celo</span>
                             </div>
                             <h3 className="text-xl font-bold text-white mb-2 uppercase font-mono">Carbon Neutral</h3>

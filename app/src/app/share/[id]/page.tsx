@@ -24,22 +24,21 @@ export async function generateMetadata(
     }
 
     const level = LEVELS[levelId - 1];
-    const imageUrl = level.image;
 
+    // Open Graph / Twitter images intentionally omitted here so Next.js uses the
+    // branded card from share/[id]/opengraph-image.tsx (1200x630) as the preview.
     return {
         title: `Level ${level.id}: ${level.name} | EcoThailand`,
         description: `I just minted a Level ${level.id} Impact Product! Join me in regenerating the Thai Gulf.`,
         openGraph: {
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [imageUrl],
             url: `${PRODUCTION_URL}/share/${id}`,
         },
         twitter: {
             card: 'summary_large_image',
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,
-            images: [imageUrl],
         },
     };
 }

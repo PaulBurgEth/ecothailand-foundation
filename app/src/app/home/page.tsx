@@ -91,6 +91,7 @@ export default function HomePage() {
                         <button
                             className="md:hidden p-2 text-white hover:text-cyber-green transition-colors"
                             onClick={() => setIsMenuOpen(true)}
+                            aria-label="Open navigation menu"
                         >
                             <Menu size={24} />
                         </button>

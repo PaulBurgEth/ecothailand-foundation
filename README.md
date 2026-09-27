@@ -33,6 +33,16 @@ Plus: **Regeneration Bundle** — gas-efficient batch mint of all five.
 - `foundry/` — Solidity smart contracts (Foundry framework)
 - `hardhat/` — Hardhat project (alternative toolchain)
 - `app/` — Next.js DApp frontend (wallet connection, mint flow)
+- `docs/` — project documentation (see below)
+
+## Documentation
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — what the project is and how it fits together (written for non-developers)
+- [`docs/DECISIONS.md`](docs/DECISIONS.md) — log of significant changes and why they were made
+- [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md) — open items, brittle areas, and technical debt
+- [`app/README.md`](app/README.md) — frontend setup & environment variables
+
+Legal pages live at `/privacy` and `/terms` (source in `app/src/app/privacy` and `app/src/app/terms`).
 
 ## Stack
 

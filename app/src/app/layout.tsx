@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Unbounded, Space_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
@@ -7,7 +7,23 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const unbounded = Unbounded({ subsets: ['latin'], variable: '--font-unbounded' });
 const spaceMono = Space_Mono({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-mono' });
 
-import { PRODUCTION_URL } from '@/lib/constants';
+import { PRODUCTION_URL, LEVELS, BUNDLE_DATA } from '@/lib/constants';
+
+const productSchema = [...LEVELS, BUNDLE_DATA].map((level) => ({
+  '@type': 'Product',
+  'name': level.name,
+  'description': level.description,
+  'image': `${PRODUCTION_URL}${level.image}`,
+  'category': 'Environmental Impact Product',
+  'brand': { '@type': 'Brand', 'name': 'EcoThailand Impact' },
+  'offers': {
+    '@type': 'Offer',
+    'price': level.priceUSD,
+    'priceCurrency': 'USD',
+    'availability': 'https://schema.org/InStock',
+    'url': level.id ? `${PRODUCTION_URL}/share/${level.id}` : PRODUCTION_URL,
+  },
+}));
 
 export const metadata: Metadata = {
   metadataBase: new URL(PRODUCTION_URL),
@@ -53,10 +69,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#022c22',
 };
 
 const jsonLd = {
@@ -76,7 +92,7 @@ const jsonLd = {
       'url': PRODUCTION_URL,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${PRODUCTION_URL}/favicon.png`,
+        'url': `${PRODUCTION_URL}/apple-icon`,
       },
       'sameAs': ['https://ecothailand.org'],
     },
@@ -133,6 +149,7 @@ const jsonLd = {
         },
       ],
     },
+    ...productSchema,
   ],
 };
 

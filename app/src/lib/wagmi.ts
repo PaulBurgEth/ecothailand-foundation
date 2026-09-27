@@ -15,7 +15,7 @@ if (!projectId && typeof window !== 'undefined') {
 }
 
 export const config = getDefaultConfig({
-    appName: 'EcoThailand Impact Product',
+    appName: 'EcoThailand tRWI',
     projectId: projectId || 'demo-project-id',
     chains: [celo, celoSepolia],
     transports: {

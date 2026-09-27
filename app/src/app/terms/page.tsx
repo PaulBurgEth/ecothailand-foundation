@@ -5,11 +5,11 @@ import { Footer } from '@/components/Footer';
 export const metadata: Metadata = {
     title: 'Terms of Service',
     description:
-        'Terms for using EcoThailand Impact. Impact Products are tokenized representations of real-world environmental action, not investments or financial instruments.',
+        'Terms for using EcoThailand Impact. tRWI (Tokenized Real-World Impact) tokens represent real-world environmental action and are not investments or financial instruments.',
     alternates: { canonical: '/terms' },
 };
 
-const UPDATED = 'May 31, 2026';
+const UPDATED = 'September 27, 2026';
 
 export default function TermsPage() {
     return (
@@ -31,9 +31,9 @@ export default function TermsPage() {
 
                 <div className="space-y-8 leading-relaxed text-warm-sand/80">
                     <section className="glass-organic p-6 border border-thai-gold/20">
-                        <h2 className="text-xl font-bold text-thai-gold mb-3">Important: Impact Products are not investments</h2>
+                        <h2 className="text-xl font-bold text-thai-gold mb-3">Important: tRWI tokens are not investments</h2>
                         <p>
-                            Impact Products are tokenized representations of real-world environmental action and
+                            tRWI (Tokenized Real-World Impact) tokens represent real-world environmental action and
                             charitable support. They are <strong>not</strong> investments, securities, shares, or
                             financial instruments, and they carry <strong>no expectation of profit, yield, or return</strong>.
                             Nothing on this site is financial, legal, or tax advice. Purchase only what you are comfortable
@@ -44,15 +44,15 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-xl font-bold text-white mb-3">1. Acceptance</h2>
                         <p>
-                            By using EcoThailand Impact (the &ldquo;Site&rdquo;) and minting Impact Products, you agree to
+                            By using EcoThailand Impact (the &ldquo;Site&rdquo;) and funding tRWI tokens, you agree to
                             these Terms. If you do not agree, please do not use the Site.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-white mb-3">2. What an Impact Product is</h2>
+                        <h2 className="text-xl font-bold text-white mb-3">2. What a tRWI is</h2>
                         <p>
-                            Each Impact Product is an on-chain token on the Celo blockchain that corresponds to verified
+                            Each tRWI is an on-chain token on the Celo blockchain that corresponds to verified
                             regeneration efforts in the Thai Gulf. Of the funds from each mint, 80% supports
                             EcoThailand&rsquo;s on-the-ground projects, 10% supports EcoSynthesisX technology, and 10%
                             supports the ReFi Phangan node and GreenPill Phangan chapter.
@@ -98,7 +98,7 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-xl font-bold text-white mb-3">7. Disclaimer &amp; limitation of liability</h2>
                         <p>
-                            The Site and Impact Products are provided &ldquo;as is&rdquo; without warranties of any kind. To
+                            The Site and tRWI tokens are provided &ldquo;as is&rdquo; without warranties of any kind. To
                             the maximum extent permitted by law, the EcoThailand Foundation and its partners are not liable
                             for any losses arising from use of the Site, blockchain transactions, or third-party services.
                         </p>

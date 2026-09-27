@@ -6,7 +6,7 @@ import { PRODUCTION_URL } from '@/lib/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'EcoThailand Impact Product';
+export const alt = 'EcoThailand tRWI (Tokenized Real-World Impact)';
 export const size = {
     width: 1200,
     height: 630,

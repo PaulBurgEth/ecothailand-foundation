@@ -65,7 +65,7 @@ export function Footer() {
                             </Link>
                         </div>
                         <p className="font-mono text-[10px] text-slate-500/80 leading-relaxed max-w-md normal-case tracking-normal">
-                            Impact Products are tokenized representations of real-world environmental action, not investments or financial advice. On-chain transactions are irreversible.
+                            tRWI (Tokenized Real-World Impact) tokens represent real-world environmental action. They are not investments or financial advice. On-chain transactions are irreversible.
                         </p>
                     </div>
 

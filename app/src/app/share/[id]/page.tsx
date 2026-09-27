@@ -19,7 +19,7 @@ export async function generateMetadata(
 
     if (isNaN(levelId) || levelId < 1 || levelId > 5) {
         return {
-            title: 'EcoThailand Impact Product'
+            title: 'EcoThailand tRWI (Tokenized Real-World Impact)'
         };
     }
 
@@ -29,7 +29,7 @@ export async function generateMetadata(
     // branded card from share/[id]/opengraph-image.tsx (1200x630) as the preview.
     return {
         title: `Level ${level.id}: ${level.name} | EcoThailand`,
-        description: `I just minted a Level ${level.id} Impact Product! Join me in regenerating the Thai Gulf.`,
+        description: `I just funded a Level ${level.id} tRWI (Tokenized Real-World Impact)! Join me in regenerating the Thai Gulf.`,
         openGraph: {
             title: `Level ${level.id}: ${level.name}`,
             description: level.description,

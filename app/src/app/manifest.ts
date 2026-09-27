@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: 'EcoThailand Impact',
         short_name: 'EcoThailand',
         description:
-            'Support environmental restoration in the Thai Gulf with tokenized impact products on Celo.',
+            'Fund environmental restoration in the Thai Gulf with tRWI (Tokenized Real-World Impact) tokens on Celo.',
         start_url: '/',
         display: 'standalone',
         background_color: '#022c22',

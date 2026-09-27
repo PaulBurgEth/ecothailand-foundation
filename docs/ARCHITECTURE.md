@@ -4,7 +4,7 @@ Written for someone who understands the business but not necessarily the code. I
 
 ## What this project does
 
-EcoThailand Impact is a website where supporters fund real environmental restoration in the Thai Gulf (mangroves, coral, seagrass, education, community gardens) by buying "Impact Products." Each Impact Product is a token recorded on the Celo blockchain — a permanent, public receipt of the contribution. When someone buys, the money is split automatically on-chain: **80% to EcoThailand Foundation, 10% to EcoSynthesisX, 10% to ReFi/GreenPill Phangan.**
+EcoThailand Impact is a website where supporters fund real environmental restoration in the Thai Gulf (mangroves, coral, seagrass, education, community gardens) by funding tRWI tokens (Tokenized Real-World Impact; called "Impact Products" before September 2026). Each tRWI is a token recorded on the Celo blockchain — a permanent, public receipt of the contribution. When someone buys, the money is split automatically on-chain: **80% to EcoThailand Foundation, 10% to EcoSynthesisX, 10% to ReFi/GreenPill Phangan.**
 
 Live site: https://ecothailand.regenbazaar.com
 

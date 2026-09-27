@@ -1,4 +1,4 @@
-# EcoThailand Foundation — tRWI Collection
+# EcoThailand Foundation, tRWI Pilot Collection
 
 **Regenerative action hub for the Thai Gulf.** Restoring mangroves, coral, soil, and communities — funded through tokenized impact on Celo.
 
@@ -6,9 +6,9 @@
 
 ## What this is
 
-tRWI framework built for [EcoThailand Foundation](https://ecothailand.org) — tokenizing volunteer contributions and environmental education into fundable, verifiable on-chain capital.
+tRWI (Tokenized Real-World Impact) pilot built for [EcoThailand Foundation](https://ecothailand.org): volunteer work and environmental education become verified on-chain tokens that anyone can fund. Launched before the [Regen Bazaar](https://regenbazaar.com) marketplace.
 
-Every purchase of a tRWI unit (tokenized real-world impact) funds tangible environmental change in the Thai Gulf:
+Every tRWI funded here pays for tangible environmental change in the Thai Gulf:
 - Mangrove restoration
 - Coral nursery frames
 - Sea grass preservation
@@ -17,7 +17,7 @@ Every purchase of a tRWI unit (tokenized real-world impact) funds tangible envir
 
 **Transparency:** 80% of funds flow directly to EcoThailand Foundation's local field operations. 10% to EcoSynthesisX for technology. 10% to ReFi Phangan + GreenPill Phangan local initiatives.
 
-## Impact Collection
+## tRWI pilot collection
 
 Five tiered tRWI NFTs on Celo:
 1. **Mangrove Seed** (~$2) — community gardens, composting

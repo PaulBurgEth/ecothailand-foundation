@@ -46,3 +46,10 @@ Triggered by a review request on the live site (https://ecothailand.regenbazaar.
 
 ### Deploy method
 - Deployed with `vercel --prod` from the linked `app/` project (Vercel CLI 50.37.3, authed as `paulburgeth`). No git remote build trigger was used. **The deployed code is currently uncommitted** — see KNOWN_ISSUES.
+
+## 2026-09-27 · "Impact Product" renamed to tRWI
+
+- **What:** all visible copy, meta tags, JSON-LD FAQ, OG alt text, share text, wallet `appName`, terms and privacy now say tRWI (Tokenized Real-World Impact). The first mention on each page carries the expansion. The collection is called a "tRWI pilot collection".
+- **Why:** Regen Bazaar moved its positioning from "Impact Product" to tRWI (canon: `RegenBazaar/index.html`). "Pilot" is there because this collection (tiered NFTs on Celo, 80/10/10 split) predates tRWI v2 (ERC-1155 editions, USDG, EAS), so it must not claim v2 mechanics.
+- **Not changed on purpose:** `app/metadata_export/*.json` and `app/scripts/generate-metadata-files.js` (`"Type": "Impact Product"` is already pinned to IPFS for minted tokens); contract names and ABI; "Verified RWI" labels (they describe the impact itself, not the token).
+- **Terms:** "Last updated" moved to September 27, 2026. Only the term changed; the legal meaning (not an investment, no refunds) is the same.

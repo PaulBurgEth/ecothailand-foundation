@@ -14,7 +14,7 @@ const productSchema = [...LEVELS, BUNDLE_DATA].map((level) => ({
   'name': level.name,
   'description': level.description,
   'image': `${PRODUCTION_URL}${level.image}`,
-  'category': 'Environmental Impact Product',
+  'category': 'Tokenized Real-World Impact (tRWI)',
   'brand': { '@type': 'Brand', 'name': 'EcoThailand Impact' },
   'offers': {
     '@type': 'Offer',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | EcoThailand Impact'
   },
   description:
-    'Support environmental restoration in the Thai Gulf with tokenized impact products on Celo. Join EcoThailand in planting mangroves and coral.',
+    'Fund environmental restoration in the Thai Gulf with tRWI (Tokenized Real-World Impact) tokens on Celo. Join EcoThailand in planting mangroves and coral.',
   keywords: [
     'environmental impact tokens Thailand',
     'ReFi impact marketplace',
@@ -40,12 +40,13 @@ export const metadata: Metadata = {
     'Celo blockchain eco tokens',
     'Regeneration hub Thai Gulf',
     'EcoThailand',
-    'Impact Product',
+    'tRWI',
+    'Tokenized Real-World Impact',
     'Regen Bazaar'
   ],
   openGraph: {
     title: 'EcoThailand Impact | Regenerative Environmental Action',
-    description: 'Collect tokenized Real-World Impact (RWI) to regenerate the Thai Gulf. Verified mangrove and coral restoration on Celo.',
+    description: 'Fund Tokenized Real-World Impact (tRWI) to regenerate the Thai Gulf. Verified mangrove and coral restoration on Celo.',
     url: '/',
     siteName: 'EcoThailand Impact',
     locale: 'en_US',
@@ -55,14 +56,14 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'EcoThailand Impact Product | Regenerate the Thai Gulf',
+        alt: 'EcoThailand tRWI Pilot Collection | Regenerate the Thai Gulf',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'EcoThailand Impact | Restore Mangroves & Coral',
-    description: 'Support environmental restoration in the Thai Gulf with tokenized impact products on Celo.',
+    description: 'Fund environmental restoration in the Thai Gulf with tRWI (Tokenized Real-World Impact) tokens on Celo.',
     creator: '@EcoThailand',
     images: ['/opengraph-image'],
   },
@@ -101,10 +102,10 @@ const jsonLd = {
       'mainEntity': [
         {
           '@type': 'Question',
-          'name': 'What is an Impact Product?',
+          'name': 'What is a tRWI?',
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': 'An Impact Product is a onchain tokenized real-world impact on the Celo blockchain that represents real-world environmental action. Each level corresponds to verified regeneration efforts in the Thai Gulf, from planting trees to removing ocean plastic.',
+            'text': 'A tRWI (Tokenized Real-World Impact) is a token for verified environmental work, recorded on the Celo blockchain. This collection is an early tRWI pilot, launched before the Regen Bazaar marketplace. Each level corresponds to verified regeneration efforts in the Thai Gulf, from planting trees to removing ocean plastic.',
           },
         },
         {
@@ -120,15 +121,15 @@ const jsonLd = {
           'name': 'Why Celo?',
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': 'Celo is a carbon-negative blockchain designed for mobile-first financial inclusion. Its low fees and commitment to regenerative finance (ReFi) make it the perfect home for our Impact Products.',
+            'text': 'Celo is a carbon-negative blockchain designed for mobile-first financial inclusion. Its low fees and commitment to regenerative finance (ReFi) make it the perfect home for our tRWI pilot collection.',
           },
         },
         {
           '@type': 'Question',
-          'name': 'Can I sell my Impact Product?',
+          'name': 'Can I sell my tRWI?',
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': 'Yes, you can trade your Impact Products on secondary marketplaces. In the future, we plan to support selling and staking on the Regen Bazaar, enhancing the liquidity and utility of your contributions.',
+            'text': 'Yes, you can trade your tRWI tokens on secondary marketplaces. In the future, we plan to support selling and staking on the Regen Bazaar, enhancing the liquidity and utility of your contributions.',
           },
         },
         {

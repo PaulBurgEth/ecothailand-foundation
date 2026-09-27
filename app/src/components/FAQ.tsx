@@ -5,8 +5,8 @@ import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
 const FAQS = [
     {
-        question: "What is an Impact Product?",
-        answer: "An Impact Product is a onchain tokenized real-world impact on the Celo blockchain that represents real-world environmental action. Each level corresponds to verified regeneration efforts in the Thai Gulf, from planting trees to removing ocean plastic."
+        question: "What is a tRWI?",
+        answer: "A tRWI (Tokenized Real-World Impact) is a token for verified environmental work, recorded on the Celo blockchain. This collection is an early tRWI pilot, launched before the Regen Bazaar marketplace. Each level corresponds to verified regeneration efforts in the Thai Gulf, from planting trees to removing ocean plastic."
     },
     {
         question: "How does the purchase help?",
@@ -14,11 +14,11 @@ const FAQS = [
     },
     {
         question: "Why Celo?",
-        answer: "Celo is a carbon-negative blockchain designed for mobile-first financial inclusion. Its low fees and commitment to regenerative finance (ReFi) make it the perfect home for our Impact Products."
+        answer: "Celo is a carbon-negative blockchain designed for mobile-first financial inclusion. Its low fees and commitment to regenerative finance (ReFi) make it the perfect home for our tRWI pilot collection."
     },
     {
-        question: "Can I sell my Impact Product?",
-        answer: "Yes, you can trade your Impact Products on secondary marketplaces. In the future, we plan to support selling and staking on the Regen Bazaar, enhancing the liquidity and utility of your contributions."
+        question: "Can I sell my tRWI?",
+        answer: "Yes, you can trade your tRWI tokens on secondary marketplaces. In the future, we plan to support selling and staking on the Regen Bazaar, enhancing the liquidity and utility of your contributions."
     },
     {
         question: "How is the impact verified?",

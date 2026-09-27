@@ -35,7 +35,7 @@ export default function PrivacyPage() {
                         <p>
                             EcoThailand Impact is operated by the EcoThailand Foundation (&ldquo;we&rdquo;, &ldquo;us&rdquo;).
                             This policy explains what data is involved when you use this website and connect a wallet to
-                            mint Impact Products on the Celo blockchain.
+                            fund tRWI (Tokenized Real-World Impact) tokens on the Celo blockchain.
                         </p>
                     </section>
 

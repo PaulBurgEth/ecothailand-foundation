@@ -193,7 +193,7 @@ export const BUNDLE_DATA: LevelData = {
 export const MILESTONE_USD = 5000;
 
 export const TWITTER_SHARE_TEXT = encodeURIComponent(
-  "I just supported @EcoThailand's mission to regenerate the Thai Gulf! 🌊🌱\n\nCollect your own Impact Product and join the movement:\n\n#ReFi #ImpactProduct #Celo #EcoThailand"
+  "I just supported @EcoThailand's mission to regenerate the Thai Gulf! 🌊🌱\n\nFund your own tRWI (Tokenized Real-World Impact) and join the movement:\n\n#ReFi #tRWI #Celo #EcoThailand"
 );
 
 export const TWITTER_INTENT_URL = `https://twitter.com/intent/tweet?text=${TWITTER_SHARE_TEXT}`;

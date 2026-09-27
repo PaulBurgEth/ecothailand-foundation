@@ -20,11 +20,11 @@ export function AboutMission() {
                             </p>
 
                             <p className="text-lg text-warm-sand/80 leading-relaxed mb-6">
-                                Our platform leverages <strong>Regenerative Finance (ReFi)</strong> on the Celo blockchain to fund critical restoration projects. By collecting an Impact Product, you are directly supporting the restoration of mangroves, preservation of sea grass, and deployment of coral nursery frames.
+                                Our platform leverages <strong>Regenerative Finance (ReFi)</strong> on the Celo blockchain to fund critical restoration projects. By funding a tRWI (Tokenized Real-World Impact), you are directly supporting the restoration of mangroves, preservation of sea grass, and deployment of coral nursery frames.
                             </p>
 
                             <p className="text-lg text-warm-sand/80 leading-relaxed">
-                                Every transaction is verified on-chain, creating a transparent, permanent record of your contribution to the Thai Gulf ecosystem. This is more than a digital collectible; it's a <strong>verified impact product</strong> that funds tangible environmental change.
+                                Every transaction is verified on-chain, creating a transparent, permanent record of your contribution to the Thai Gulf ecosystem. This is more than a digital collectible; it's a <strong>verified tRWI</strong> that funds tangible environmental change.
                             </p>
                         </div>
                     </div>

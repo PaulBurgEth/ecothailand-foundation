@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { PRODUCTION_URL, LEVELS } from '@/lib/constants';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const routes = ['', '/share/1', '/share/2', '/share/3', '/share/4', '/share/5', '/privacy', '/terms'].map(
         (route) => ({

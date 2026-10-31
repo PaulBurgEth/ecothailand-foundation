@@ -1,8 +1,8 @@
 
 import { ImageResponse } from 'next/og';
-import { PRODUCTION_URL } from '@/lib/constants';
+import { publicImageDataUri } from '@/lib/og-image';
 
-export const runtime = 'edge';
+export const dynamic = 'force-static';
 
 export const alt = 'EcoThailand tRWI Pilot Collection | Regenerate the Thai Gulf';
 export const size = {
@@ -13,6 +13,12 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+    const [logo, level1, level2] = await Promise.all([
+        publicImageDataUri('/images/ecosynthesisx-logo.svg'),
+        publicImageDataUri('/images/level-1.jpg'),
+        publicImageDataUri('/images/level-2.jpg'),
+    ]);
+
     return new ImageResponse(
         (
             <div
@@ -55,7 +61,7 @@ export default async function Image() {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 80, width: '60%', zIndex: 10 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 30 }}>
                         <img
-                            src={`${PRODUCTION_URL}/images/ecosynthesisx-logo.svg`}
+                            src={logo}
                             style={{ width: 40, height: 40, borderRadius: '50%' }}
                         />
                         <div style={{ fontSize: 24, letterSpacing: '0.2em', color: '#00FFA3', fontWeight: 'bold' }}>ECOTHAILAND IP</div>
@@ -86,7 +92,7 @@ export default async function Image() {
                         justifyContent: 'center'
                     }}>
                         <img
-                            src={`${PRODUCTION_URL}/images/level-1.jpg`}
+                            src={level1}
                             style={{
                                 width: 380,
                                 height: 380,
@@ -100,7 +106,7 @@ export default async function Image() {
                             }}
                         />
                         <img
-                            src={`${PRODUCTION_URL}/images/level-2.jpg`}
+                            src={level2}
                             style={{
                                 width: 380,
                                 height: 380,

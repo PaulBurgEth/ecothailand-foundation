@@ -50,7 +50,7 @@ export function MintModal({ isOpen, levelId, onClose }: MintModalProps) {
     if (!isOpen || !level) return null;
 
     // Construct dynamic share URL pointing to our new metadata page
-    const appUrl = typeof window !== 'undefined' ? window.location.origin : 'https://app-lac-phi-20.vercel.app';
+    const appUrl = typeof window !== 'undefined' ? window.location.origin : 'https://ecothailand.regenbazaar.com';
     const dynamicShareUrl = `${appUrl}/share/${level.id}`;
 
     const shareText = encodeURIComponent(

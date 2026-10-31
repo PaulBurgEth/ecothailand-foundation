@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 // Small, code-generated favicon (replaces the 398 KB raster favicon).
+export const dynamic = 'force-static';
 export const size = { width: 64, height: 64 };
 export const contentType = 'image/png';
 

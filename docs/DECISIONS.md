@@ -53,3 +53,10 @@ Triggered by a review request on the live site (https://ecothailand.regenbazaar.
 - **Why:** Regen Bazaar moved its positioning from "Impact Product" to tRWI (canon: `RegenBazaar/index.html`). "Pilot" is there because this collection (tiered NFTs on Celo, 80/10/10 split) predates tRWI v2 (ERC-1155 editions, USDG, EAS), so it must not claim v2 mechanics.
 - **Not changed on purpose:** `app/metadata_export/*.json` and `app/scripts/generate-metadata-files.js` (`"Type": "Impact Product"` is already pinned to IPFS for minted tokens); contract names and ABI; "Verified RWI" labels (they describe the impact itself, not the token).
 - **Terms:** "Last updated" moved to September 27, 2026. Only the term changed; the legal meaning (not an investment, no refunds) is the same.
+
+## 2026-10-31 · Moved from Vercel to Cloudflare Pages (static export)
+
+- **What:** `app/next.config.ts` sets `output: 'export'` and `images.unoptimized: true`. The 7 Vercel functions (icon, apple-icon, opengraph-image, share/[id]/opengraph-image, share/[id], api/metadata/[id], manifest/robots/sitemap) are all prerendered at build time: `force-static` plus `generateStaticParams` for ids 1-5. OG images read their pictures from `public/` (`src/lib/og-image.ts`) instead of fetching the live domain. Security headers moved from `headers()` to `public/_headers`, which also sets content types for the extensionless icon, OG and metadata files. `/api/metadata/[id]` image URLs now point to `PRODUCTION_URL` instead of the dead `app-lac-phi-20.vercel.app`.
+- **Why:** the Vercel Hobby team was paused until 2026-11-30 (HTTP 402). Cloudflare Pages is free and the content is fixed (5 levels).
+- **Trade-offs:** ids outside 1-5 now return 404 instead of the JSON 400 error from `/api/metadata`; adding a level needs a rebuild.
+- **Fragile:** deploys are manual (`wrangler pages deploy out --project-name=ecothailand` from `app/`).

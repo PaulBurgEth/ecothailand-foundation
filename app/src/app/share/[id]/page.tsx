@@ -7,11 +7,16 @@ import Link from 'next/link';
 
 interface Props {
     params: Promise<{ id: string }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return LEVELS.map((level) => ({ id: String(level.id) }));
 }
 
 export async function generateMetadata(
-    { params, searchParams }: Props,
+    { params }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const { id } = await params;

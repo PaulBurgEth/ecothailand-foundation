@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 // Apple touch icon + reused as the Organization logo in JSON-LD (180x180, opaque).
+export const dynamic = 'force-static';
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 

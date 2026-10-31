@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { LEVELS } from '@/lib/constants';
+import { LEVELS, PRODUCTION_URL } from '@/lib/constants';
 
 // Metadata API for ERC-1155 token URIs
-// Endpoint: /api/metadata/[id]
+// Endpoint: /api/metadata/[id], prerendered for ids 1-5 (static export)
+
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return LEVELS.map((level) => ({ id: String(level.id) }));
+}
 
 export async function GET(
     request: NextRequest,
@@ -25,7 +32,7 @@ export async function GET(
     const metadata = {
         name: `EcoThailand Impact Level ${levelId}: ${level.name}`,
         description: level.description,
-        image: `https://app-lac-phi-20.vercel.app${level.image}`,
+        image: `${PRODUCTION_URL}${level.image}`,
         external_url: 'https://ecothailand.org',
         attributes: [
             {

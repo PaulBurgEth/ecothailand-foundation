@@ -2,9 +2,14 @@
 import { ImageResponse } from 'next/og';
 import { LEVELS } from '@/lib/constants';
 
-import { PRODUCTION_URL } from '@/lib/constants';
+import { publicImageDataUri } from '@/lib/og-image';
 
-export const runtime = 'edge';
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return LEVELS.map((level) => ({ id: String(level.id) }));
+}
 
 export const alt = 'EcoThailand tRWI (Tokenized Real-World Impact)';
 export const size = {
@@ -19,6 +24,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
     const levelId = parseInt(id, 10);
     // Default to level 1 for safety
     const level = LEVELS[levelId - 1] || LEVELS[0];
+    const levelImage = await publicImageDataUri(level.image);
 
     return new ImageResponse(
         (
@@ -52,10 +58,10 @@ export default async function Image({ params }: { params: Promise<{ id: string }
                     </div>
                 </div>
 
-                {/* Satori requires an absolute URL for the image. */}
+                {/* Satori needs an absolute or data URL for the image. */}
                 <div style={{ width: '40%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={`${PRODUCTION_URL}${level.image}`}
+                        src={levelImage}
                         style={{
                             width: 350,
                             height: 350,

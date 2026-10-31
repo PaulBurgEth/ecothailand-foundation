@@ -20,7 +20,7 @@ Live site: https://ecothailand.regenbazaar.com
 
 ## The website (`app/`) in detail
 
-Built with **Next.js 16** (React 19) and **Tailwind CSS 4**, deployed on **Vercel** behind **Cloudflare**. Key files:
+Built with **Next.js 16** (React 19) and **Tailwind CSS 4**, exported as static files and hosted on **Cloudflare Pages**. Key files:
 
 ### Pages (what loads at each URL)
 - `src/app/layout.tsx` — the shared wrapper for every page. Holds the page `<head>`: title, description, social-share tags, **structured data** (the machine-readable JSON that helps Google show rich results), fonts, theme color.
@@ -45,7 +45,7 @@ Built with **Next.js 16** (React 19) and **Tailwind CSS 4**, deployed on **Verce
 
 ## How a purchase flows (data + money)
 
-1. Visitor opens the site → **Cloudflare → Vercel** serves the page.
+1. Visitor opens the site → **Cloudflare Pages** serves the page.
 2. They click **Connect Wallet** → RainbowKit/Wagmi opens their crypto wallet.
 3. They pick a level and confirm → the website calls the **smart contract** on Celo, sending CELO (with a small price buffer for exchange-rate movement).
 4. The contract takes payment, **splits it 80/10/10** to the three recipient addresses, and issues the token to the buyer.
@@ -56,8 +56,7 @@ The website never holds anyone's money or keys; everything settles on-chain.
 ## External dependencies (and why)
 
 - **Celo blockchain** — carbon-negative, very low fees, mobile-first. Chosen so ~90%+ of each contribution reaches the ground.
-- **Vercel** — hosting/CDN for the website.
-- **Cloudflare** — sits in front for caching/security (HSTS, etc.).
+- **Cloudflare Pages** — hosting/CDN for the website (static files; headers such as HSTS in `app/public/_headers`).
 - **WalletConnect / RainbowKit** — the wallet-connection UI.
 - **Pinata (IPFS)** — image hosting for token metadata (configured in `next.config.ts`).
 - **Google Fonts** (Inter, Unbounded, Space Mono), **GSAP** (animations), **lucide-react** (icons).

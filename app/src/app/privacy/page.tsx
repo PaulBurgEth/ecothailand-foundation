@@ -61,7 +61,7 @@ export default function PrivacyPage() {
                     <section>
                         <h2 className="text-xl font-bold text-white mb-3">4. Technical logs</h2>
                         <p>
-                            Our hosting and network providers (Vercel and Cloudflare) may automatically process technical
+                            Our hosting and network providers (Cloudflare) may automatically process technical
                             information such as IP address, browser type, and request timestamps to deliver the site
                             securely and prevent abuse. This is standard server logging and is not used to identify you
                             personally.
